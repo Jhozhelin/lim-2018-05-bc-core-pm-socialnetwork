@@ -1,22 +1,75 @@
 * {
     margin: 0; 
     padding: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
+.background{
+    background-image: url("img/background.jpg");
+    background-position: center;
+	background-attachment: fixed;
+	background-size: cover;
+	text-align: center;
+    background-repeat: no-repeat;
+}
 .container{
-    text-align: center;
+    width: 100%;
+    margin: 100px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.container .boxLogin{
+#boxLogin{
     width: 300px;
-    height: 300px;
-    background-color: #13B81B;
-    margin-top: 300px;
-    margin: 200px auto;
-    padding: 40px 40px;
+    height: 320px;
+    padding: 40px;
+    text-align: center;
+    background-color: #74aa49;
+    border-radius: 10px;
+    display: none;
+    
 }
 
 .title{
     font-family: 'Roboto', sans-serif;
+}
 
+#boxRegister{
+    border-radius: 10px;
+}
+
+#boxRegister input[type=text]{
+    width: 220px;
+    height: 25px;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+/*#loginPassword{
+    width: 220px;
+    height: 25px;
+    border-radius: 5px;
+}*/
+
+#containerLogin input[type=button]{
+    width: 120px;
+    height: 35px;
+    background-color: #FFC300;
+    color: #000000;
+    font-size: 20px;
+    font-weight: bolder;
+    border: none;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+#boxLogin p{
+    margin-top: 15px;
+}
+#boxRegister{
+    width: 300px;
+    height: 320px;
+    padding: 40px;
+    text-align: center;
+    background-color: #74aa49;
 }
