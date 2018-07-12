@@ -1,58 +1,52 @@
 * {
-    margin: 0; 
-    padding: 0;
+    margin: 0px; 
+    padding: 0px;
     font-family: 'Roboto', sans-serif;
 }
 
 .background{
+    width: 100%;
     background-image: url("img/background.jpg");
     background-position: center;
 	background-attachment: fixed;
 	background-size: cover;
-	text-align: center;
     background-repeat: no-repeat;
 }
-.container{
-    width: 100%;
-    margin: 100px auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+.boxLogin{
+    width: 300px;
+    height: 300px;
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #74aa49;
+    margin: 150px auto;
 }
 
-#boxLogin{
-    width: 300px;
-    height: 320px;
-    padding: 40px;
-    text-align: center;
-    background-color: #74aa49;
-    border-radius: 10px;
-    display: none;
-    
+.title{
+    color: #ffffff;
+    margin-bottom: 20px;
 }
 
 .title{
     font-family: 'Roboto', sans-serif;
 }
 
-#boxRegister{
-    border-radius: 10px;
-}
-
-#boxRegister input[type=text]{
-    width: 220px;
+.containerLogin input[type=text]{
+    width: 250px;
     height: 25px;
     border-radius: 5px;
     margin-top: 15px;
 }
 
-/*#loginPassword{
-    width: 220px;
+.containerLogin input[type=password]{
+    width: 250px;
     height: 25px;
     border-radius: 5px;
-}*/
+    margin-top: 15px;
+}
 
-#containerLogin input[type=button]{
+.containerLogin input[type=button]{
     width: 120px;
     height: 35px;
     background-color: #FFC300;
@@ -63,13 +57,29 @@
     border-radius: 5px;
     margin-top: 15px;
 }
-#boxLogin p{
-    margin-top: 15px;
-}
-#boxRegister{
-    width: 300px;
-    height: 320px;
-    padding: 40px;
+
+#message{
     text-align: center;
-    background-color: #74aa49;
 }
+
+#message h3{
+    color: rgb(224, 149, 9);
+    font-size: 30px;
+}
+
+.boxRegister{
+    width: 300px;
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #74aa49;
+    margin: 150px auto; 
+    display: none;
+}
+
+#message{
+	display: none;
+}
+
+
+

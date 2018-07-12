@@ -5,57 +5,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <title>Red Social</title>
-</head>
-
-<body class="background">
-    <div class="container">
-        <div id="containerLogin">
-            <div id="boxLogin">
-                <h2 class="title" id="title">Iniciar Seción</h2>
-                <input type="text" placeholder="Correo electrónico" id="loginEmail">
-                <br>
-                <br>
-                <input type="text" placeholder="Contraseña" id="loginPassword">
-                <br>
-                <br>
-                <input type="button" value="Entrar" id="buttonEnter">
-                <p>------------------------- o -------------------------</p>
-            </div>
-            <div id="boxRegister">
-                <h2>Crear Cuenta</h2>
-                <input type="text" placeholder="Nombre de Usuario" id="nameUser">
-                <br>
-                <br>
-                <input type="text" placeholder="Correo electrónico" id="createEmail">
-                <br>
-                <br>
-                <input type="text" placeholder="Contraseña" id="createPassword">
-                <br>
-                <br>
-                <input type="button" value="Registrase" id="buttonregister">
-            </div>
-        </div>
-        <div id="wellcome">
-
-        </div>
-    </div>
-    <script src="main.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
     <script>
         // Initialize Firebase
         var config = {
-          apiKey: "AIzaSyAyf_oyKwPWoDgRXxskVnPxYKGCwGbVANA",
-          authDomain: "login-red-social.firebaseapp.com",
-          databaseURL: "https://login-red-social.firebaseio.com",
-          projectId: "login-red-social",
-          storageBucket: "login-red-social.appspot.com",
-          messagingSenderId: "870954229021"
+            apiKey: "AIzaSyAyf_oyKwPWoDgRXxskVnPxYKGCwGbVANA",
+            authDomain: "login-red-social.firebaseapp.com",
+            databaseURL: "https://login-red-social.firebaseio.com",
+            projectId: "login-red-social",
+            storageBucket: "login-red-social.appspot.com",
+            messagingSenderId: "870954229021"
         };
         firebase.initializeApp(config);
-      </script>
+    </script>
+</head>
+
+<body class="background">
+    <form class="containerLogin">
+        <div id="boxLogin" class="boxLogin">
+            <h2 class="title" id="title">Iniciar Seción</h2>
+            <input type="text" placeholder="Correo electrónico" id="loginEmail">
+            <br>
+            <br>
+            <input type="password" placeholder="Contraseña" id="loginPassword">
+            <br>
+            <br>
+            <input type="button" value="Entrar" id="buttonEnter">
+            <br>
+            <br>
+            <p>o</p>
+            <br>
+            <br>
+        </div>
+        <div id="boxRegister" class="boxRegister">
+            <h2 class="titletwo" id="titletwo">Crear Cuenta</h2>
+            <br>
+            <br>
+            <input type="text" placeholder="Correo electrónico" id="email">
+            <br>
+            <br>
+            <input type="password" placeholder="Contraseña" id="createPassword">
+            <br>
+            <br>
+            <!--<input type="password" placeholder="Confirmar Contraseña" id="confimPassword">
+            <br>
+            <br>-->
+            <input type="button" value="Registrarse" id="buttonregister">
+            <br>
+            <br>
+            <p>¿No tienes una cuenta? <a href="#">Crear Cuenta</a></p>
+
+        </div>
+    </form>
+    <div id="message">
+        <h3>BIENVENIDO A "HEALTHY LIFE"</h3>
+    </div>
+    <script src="main.js"></script>
 </body>
 
 </html>
