@@ -73,12 +73,17 @@
     text-align: center;
     border-radius: 10px;
     background-color: #74aa49;
+<<<<<<< HEAD
     margin: 150px auto; 
     display: none;
 }
 
 #message{
 	display: none;
+=======
+    margin: 150px auto;
+    display: none; 
+>>>>>>> 9137ae405fcfd64b2d2cb8f68f8ae58e716f289b
 }
 
 
