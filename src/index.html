@@ -9,22 +9,14 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <title>Red Social</title>
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
-    <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyAyf_oyKwPWoDgRXxskVnPxYKGCwGbVANA",
-            authDomain: "login-red-social.firebaseapp.com",
-            databaseURL: "https://login-red-social.firebaseio.com",
-            projectId: "login-red-social",
-            storageBucket: "login-red-social.appspot.com",
-            messagingSenderId: "870954229021"
-        };
-        firebase.initializeApp(config);
-    </script>
+
 </head>
 
-<body class="background">
-    <form class="containerLogin">
+<body>
+    <div class="container">
+        <div class="imglogin" id="imglogin">
+            <img src="img/imglogin.jpg">
+        </div>
         <div id="boxLogin" class="boxLogin">
             <h2 class="title" id="title">Iniciar Seción</h2>
             <input type="text" placeholder="Correo electrónico" id="loginEmail">
@@ -36,9 +28,16 @@
             <input type="button" value="Entrar" id="buttonEnter">
             <br>
             <br>
-            <p>o</p>
+            <p class="other">o</p>
             <br>
+            <div class="loginReds">
+                <input type="submit" value="Google" id="btnGoogle">
+                <input type="submit" value="Facebook" id="btnFacebook">
+            </div>
             <br>
+            <p>¿No tienes una cuenta?
+                <a href="#" id="createCuenta">Crear cuenta</a>
+            </p>
         </div>
         <div id="boxRegister" class="boxRegister">
             <h2 class="titletwo" id="titletwo">Crear Cuenta</h2>
@@ -56,13 +55,11 @@
             <input type="button" value="Registrarse" id="buttonregister">
             <br>
             <br>
-            <p>¿No tienes una cuenta? <a href="#">Crear Cuenta</a></p>
-
         </div>
-    </form>
     <div id="message">
         <h3>BIENVENIDO A "HEALTHY LIFE"</h3>
     </div>
+</div>
     <script src="main.js"></script>
 </body>
 

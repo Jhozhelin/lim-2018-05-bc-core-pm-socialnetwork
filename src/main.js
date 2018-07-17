@@ -1,13 +1,34 @@
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyAyf_oyKwPWoDgRXxskVnPxYKGCwGbVANA",
+  authDomain: "login-red-social.firebaseapp.com",
+  databaseURL: "https://login-red-social.firebaseio.com",
+  projectId: "login-red-social",
+  storageBucket: "login-red-social.appspot.com",
+  messagingSenderId: "870954229021"
+};
+firebase.initializeApp(config);
+
 /*Elementos*/
 const login = document.getElementById('buttonEnter');
 const register = document.getElementById('buttonregister');
+const btnGoogle = document.getElementById('btnGoogle');
+const createCuenta = document.getElementById('createCuenta');
+
+
+createCuenta.addEventListener('click', () =>{
+  const boxRegister = document.getElementById('boxRegister');
+  boxRegister.style.display = 'block';
+  boxLogin.style.display = 'none';
+})
+
 
 
 register.addEventListener('click', () => {
   const emailRegister = document.getElementById('email').value;
-  const createPassword = document.getElementById('createPassword').value;  
+  const createPassword = document.getElementById('createPassword').value;
   firebase.auth().createUserWithEmailAndPassword(emailRegister, createPassword)
-     .catch(function (error) {
+    .catch(function (error) {
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
@@ -22,11 +43,13 @@ login.addEventListener('click', () => {
   const loginPassword = document.getElementById('loginPassword').value;
   const boxMessage = document.getElementById('message');
   const boxLogin = document.getElementById('boxLogin');
+  const imglogin = document.getElementById('imglogin');
   firebase.auth().signInWithEmailAndPassword(loginEmail, loginPassword)
-  .then(response=>{
-    boxLogin.style.display = 'none';
-    boxMessage.style.display = 'block';
-  })
+    .then(response => {
+      imglogin.style.display = 'none';
+      boxLogin.style.display = 'none';
+      boxMessage.style.display = 'block';
+    })
     .catch(function (error) {
       // Handle Errors here.
       var errorCode = error.code;
@@ -59,3 +82,45 @@ const observ = () => {
   });
 }
 observ();
+
+
+btnGoogle.addEventListener('click', ()=>{
+  var provider = new firebase.auth.GoogleAuthProvider();
+  firebase.auth().signInWithPopup(provider).then(function(result) {
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    var token = result.credential.accessToken;
+    // The signed-in user info.
+    var user = result.user;
+    // ...
+  }).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // The email of the user's account used.
+    var email = error.email;
+    // The firebase.auth.AuthCredential type that was used.
+    var credential = error.credential;
+    // ...
+  });
+})
+
+
+btnFacebook.addEventListener('click', ()=>{
+  var provider = new firebase.auth.FacebookAuthProvider();
+  firebase.auth().signInWithPopup(provider).then(function(result) {
+    // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+    var token = result.credential.accessToken;
+    // The signed-in user info.
+    var user = result.user;
+    // ...
+  }).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // The email of the user's account used.
+    var email = error.email;
+    // The firebase.auth.AuthCredential type that was used.
+    var credential = error.credential;
+    // ...
+  });
+})
