@@ -138,6 +138,9 @@
 	display: none;
 }
 
-    
 
+/*Post*/
 
+#containerPost{
+    height: 70vh;
+}

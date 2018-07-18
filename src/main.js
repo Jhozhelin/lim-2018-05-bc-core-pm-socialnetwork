@@ -124,3 +124,18 @@ btnFacebook.addEventListener('click', ()=>{
     // ...
   });
 })
+
+const buttonPost = document.getElementById('buttonPost');
+
+buttonPost.addEventListener('click', ()=>{
+  const postValue = document.getElementById('postArea').value;
+  const newPostKey = firebase.database().ref().child('post').push().key;
+  const loginUsers = firebase.auth().currentUser;
+  firebase.database().href(`post/${newPostKey}`).set({
+    postURL : postValue,
+    creatorName: currentUser.displayName,
+    creator : currentUser.uid,
+})
+})
+
+
