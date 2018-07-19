@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="containerLogin" id="containerLogin">
         <div class="imglogin" id="imglogin">
             <img src="img/imglogin.jpg">
         </div>
@@ -35,9 +35,13 @@
                 <input type="submit" value="Facebook" id="btnFacebook">
             </div>
             <br>
-            <p>¿No tienes una cuenta?
-                <a href="#" id="createCuenta">Crear cuenta</a>
-            </p>
+            <div class="boxCreateLogin">
+                <p>¿No tienes una cuenta?
+                    <a href="#" id="createCuenta">
+                        <font color="#3E5DB4">Crear cuenta</font>
+                    </a>
+                </p>
+            </div>
         </div>
         <div id="boxRegister" class="boxRegister">
             <h2 class="titletwo" id="titletwo">Crear Cuenta</h2>
@@ -55,13 +59,17 @@
             <input type="button" value="Registrarse" id="buttonregister">
             <br>
             <br>
-            
+            <div class="boxIngresarLogin">
+                <p>¿Tienes una cuenta?
+                    <a href="#" id="initSecion">
+                        <font color="#3E5DB4">Inicia Seción</font>
+                    </a>
+                </p>
+            </div>
         </div>
-    <div id="message">
-        <h3>BIENVENIDO A "HEALTHY LIFE"</h3>
     </div>
-</div>
     <script src="main.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>
