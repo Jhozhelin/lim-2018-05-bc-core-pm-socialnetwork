@@ -1,7 +1,7 @@
 ﻿# Red social Healthy Life
 _Proyecto diseñado y elaborado por Jhoselin Mancilla y Margot Rivera para el  bootcamp de Laboratoria 2018._
 
-## 3) DEMO
+## DEMO
 https://margotrivera.github.io/lim-2018-05-bc-core-pm-socialnetwork/ 
 
 ## Preámbulo
