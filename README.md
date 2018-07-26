@@ -49,10 +49,15 @@ Algunos objetivos específicos:
 
 ![](https://fotos.subefotos.com/26973a6437a96f38dd29f454b50b7242o.jpg)
 
-## encuesta
-![](https://fotos.subefotos.com/509eaa05f1bde67c4d8238783abb8d33o.jpg)
+## ENCUESTA
+![](https://fotos.subefotos.com/599ec90c962179ece469c5258bf9111bo.jpg)
+![](https://fotos.subefotos.com/44918b74995928eb4307ec957558ef97o.jpg)
+![](https://fotos.subefotos.com/4f11bf2cf3414445cfeeb725d3608f9bo.jpg)
+![](https://fotos.subefotos.com/46b71248ddd666afe17f9aa848c7f5e2o.jpg)
+![](https://fotos.subefotos.com/7e26ccdd9f01f8cf624d56e2aaa7f2a5o.jpg)
 
-## user persona
+
+## USER PERSONA
 ![](https://fotos.subefotos.com/2659c654a887f421f8be946fec1b442eo.jpg)
 
 <!-- 

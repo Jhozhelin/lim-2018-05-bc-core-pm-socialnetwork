@@ -183,11 +183,33 @@
     resize: none;
 }
 
-#postArea2{
+
+.boxPost{
     width: 200%;
     height: 90px;
     resize: none;
 }
+/* 
+.Editar{
+    width: 80px;
+    height: 35px;
+    background-color: #000000;
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+}
+
+.Eliminar{
+    width: 80px;
+    height: 35px;
+    background-color: #000000;
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+} */
+
 
 #buttonPost{
     width: 80px;

@@ -21,7 +21,7 @@ const btnEdit=document.createElement("button");
 const btnRemove=document.createElement("button");
 
 textoPost.textContent=valor;
-textoPost.className='';
+textoPost.className='boxPost';
 
 btnEdit.textContent='Editar';
 btnRemove.textContent='Eliminar';
