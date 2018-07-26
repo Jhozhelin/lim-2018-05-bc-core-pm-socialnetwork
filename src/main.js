@@ -1,11 +1,11 @@
-// Initialize Firebase
-var config = {
-  apiKey: "AIzaSyAyf_oyKwPWoDgRXxskVnPxYKGCwGbVANA",
-  authDomain: "login-red-social.firebaseapp.com",
-  databaseURL: "https://login-red-social.firebaseio.com",
-  projectId: "login-red-social",
-  storageBucket: "login-red-social.appspot.com",
-  messagingSenderId: "870954229021"
+ // Initialize Firebase
+ const config = {
+  apiKey: "AIzaSyDI-aVXfUHJ1AbWbag7vv5NcVR6nm3xH5s",
+  authDomain: "login-red-social-d1b3e.firebaseapp.com",
+  databaseURL: "https://login-red-social-d1b3e.firebaseio.com",
+  projectId: "login-red-social-d1b3e",
+  storageBucket: "login-red-social-d1b3e.appspot.com",
+  messagingSenderId: "786540325191"
 };
 firebase.initializeApp(config);
 
@@ -14,9 +14,11 @@ const login = document.getElementById('buttonEnter');
 const register = document.getElementById('buttonregister');
 const btnGoogle = document.getElementById('btnGoogle');
 const createCuenta = document.getElementById('createCuenta');
+const btnFacebook = document.getElementById('btnFacebook');
 const initSecion = document.getElementById('initSecion');
 const userImg = document.getElementById('userImg');
 const userName = document.getElementById('userName');
+
 
 
 /*Link para iniciar seción*/
@@ -27,7 +29,7 @@ initSecion.addEventListener('click', () =>{
   boxRegister.style.display = 'none';
 })
 
-/*Link para Crear cuenta nueva*/
+// Link para Crear cuenta nueva
 createCuenta.addEventListener('click', () =>{
   const boxRegister = document.getElementById('boxRegister');
   boxRegister.style.display = 'block';
@@ -107,8 +109,36 @@ btnGoogle.addEventListener('click', ()=>{
 /*Inicio de seción con facebook*/
 
 btnFacebook.addEventListener('click', ()=>{
+  console.log("aaqquiiii")
   var provider = new firebase.auth.FacebookAuthProvider();
   firebase.auth().signInWithPopup(provider).then(function(result) {
+    
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    var token = result.credential.accessToken;
+    // The signed-in user info.
+    var user = result.user;
+    
+    // ...
+  })
+  .then(response => {
+    console.log("567576576565")
+    const containerLogin = document.getElementById('containerLogin');
+    containerLogin.style.display = 'none';
+    window.location.href = 'post.html';
+  })
+
+  .catch(function(error) {
+    console.log("errrr", error.message)
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // The email of the user's account used.
+    var email = error.email;
+    // The firebase.auth.AuthCredential type that was used.
+    var credential = error.credential;
+    // ...
+ });
+  /*firebase.auth().signInWithPopup(provider).then(function(result) {
     // This gives you a Facebook Access Token. You can use it to access the Facebook API.
     var token = result.credential.accessToken;
     // The signed-in user info.
@@ -118,6 +148,7 @@ btnFacebook.addEventListener('click', ()=>{
   .then(response => {
     const containerLogin = document.getElementById('containerLogin');
     containerLogin.style.display = 'none';
+    console.log('aqui')
     document.getElementById('containerPost').innerHTML = window.location.href = 'post.html';
   })
   
@@ -130,22 +161,6 @@ btnFacebook.addEventListener('click', ()=>{
     // The firebase.auth.AuthCredential type that was used.
     var credential = error.credential;
     // ...
-  });
+  });*/
 })
-
-
-
-/*const buttonPost = document.getElementById('buttonPost');
-
-buttonPost.addEventListener('click', ()=>{
-  const postValue = document.getElementById('postArea').value;
-  const newPostKey = firebase.database().ref().child('post').push().key;
-  const loginUsers = firebase.auth().currentUser;
-  firebase.database().href(`post/${newPostKey}`).set({
-    postURL : postValue,
-    creatorName: currentUser.displayName,
-    creator : currentUser.uid,
-})
-})*/
-
 
