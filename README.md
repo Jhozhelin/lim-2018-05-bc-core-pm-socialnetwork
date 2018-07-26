@@ -86,7 +86,7 @@ Esta es una técnica muy simple que te ayudará a: -->
 
 RECURSO TRELLO
 
-![](https://fotos.subefotos.com/28fbe5ff23bf4ff23713bbeed7f48e26o.jpg)
+![](https://fotos.subefotos.com/e4f77e219cca3e5a12116e0eaec2ede0o.jpg)
 
 
 
