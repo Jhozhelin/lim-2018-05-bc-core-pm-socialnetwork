@@ -111,7 +111,7 @@
     color: #ffffff;
     font-size: 20px;
     font-weight: bolder;
-    width: 120px;
+    width: 35%;
     height: 35px;
     border: none;
     border-radius: 5px;
@@ -221,6 +221,26 @@
     border-radius: 5px;
 }
 
+
+.btnEdit{
+    width: 80px;
+    height: 35px;
+    background-color: #000000;
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+}
+
+.btnRemove{
+    width: 80px;
+    height: 35px;
+    background-color: #000000;
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+}
 
 
 footer{

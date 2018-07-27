@@ -18,3 +18,17 @@ window.onload = () =>{
       }
     });
   }
+
+
+  window.editPost = (postId, postData) => {
+    const updates = {};
+    updates['/posts/' + postId] = postData;
+    //updates['/user-posts/' + postData.uid + '/' + postId] = postData;
+    return firebase.database().ref().update(updates);
+  }
+  
+  //Esta funcion permite eliminar posts
+  window.deletePost = (postId, uid) => {
+    firebase.database().ref('/posts/').child(postId).remove();
+    //firebase.database().ref('/user-posts/' + uid + '/').child(postId).remove();
+  }
