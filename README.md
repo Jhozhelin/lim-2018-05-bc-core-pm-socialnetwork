@@ -145,11 +145,15 @@ Para poder llegar a estas definiciones te recomendamos revisar: benchmarks, entr
 
 ## *Sketch:*
 
-![](https://fotos.subefotos.com/876a91f9d9b956fa8e2426b40bd710dao.jpg)
-
-https://www.figma.com/file/GZJD2lJKA6xPodjwtljlot/Figma-Keyboard-Shortcuts
+![](https://fotos.subefotos.com/32db1e6e6669609c18506f2c051ed2e8o.jpg)
+![](https://fotos.subefotos.com/79968b3efd54efa8ae8d1a5d3be0beb0o.jpg)
+![](https://fotos.subefotos.com/a0fe51a566b5d37c4a1c22489ab6378ao.jpg)
 
 ![](https://fotos.subefotos.com/d9fa0c5bbf27c3f29ccff70200f66284o.jpg)
+
+## *Prototipo:*
+![(https://fotos.subefotos.com/f1d491e3c4c723a3e757ec471e563631o.jpg)
+![(https://fotos.subefotos.com/7b9d88cf099f331119b6c4814e7783bao.jpg)
 
 <!-- Debes definir cuál será el flujo que seguirá el usuario dentro de tu producto y
 con eso deberás diseñar la Interfaz de Usuario (UI - por sus siglas en inglés) de
