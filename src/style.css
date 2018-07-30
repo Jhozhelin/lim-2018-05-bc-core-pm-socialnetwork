@@ -136,7 +136,7 @@
 }
 
 .boxRegister{
-    width: 400px;
+    width: 25%;
     height: 470px;
     text-align: center;
     border-radius: 1px;
@@ -189,8 +189,8 @@
     height: 90px;
     resize: none;
 }
-/* 
-.Editar{
+
+.btnEdit{
     width: 80px;
     height: 35px;
     background-color: #000000;
@@ -200,7 +200,7 @@
     border-radius: 5px;
 }
 
-.Eliminar{
+.btnRemove{
     width: 80px;
     height: 35px;
     background-color: #000000;
@@ -208,7 +208,7 @@
     font-weight: bold;
     border: none;
     border-radius: 5px;
-} */
+}
 
 
 #buttonPost{
