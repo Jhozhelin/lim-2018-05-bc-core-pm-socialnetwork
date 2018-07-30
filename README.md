@@ -153,6 +153,7 @@ Para poder llegar a estas definiciones te recomendamos revisar: benchmarks, entr
 
 ## *Prototipo:*
 ![(https://fotos.subefotos.com/f1d491e3c4c723a3e757ec471e563631o.jpg)
+
 ![(https://fotos.subefotos.com/7b9d88cf099f331119b6c4814e7783bao.jpg)
 
 <!-- Debes definir cuál será el flujo que seguirá el usuario dentro de tu producto y
