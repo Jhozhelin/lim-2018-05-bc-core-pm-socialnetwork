@@ -149,7 +149,7 @@ Para poder llegar a estas definiciones te recomendamos revisar: benchmarks, entr
 
 https://www.figma.com/file/GZJD2lJKA6xPodjwtljlot/Figma-Keyboard-Shortcuts
 
-![](https://fotos.subefotos.com/86f5df77f7114de7751a9c3695a8dfe0o.png)
+![](https://fotos.subefotos.com/d9fa0c5bbf27c3f29ccff70200f66284o.jpg)
 
 <!-- Debes definir cuál será el flujo que seguirá el usuario dentro de tu producto y
 con eso deberás diseñar la Interfaz de Usuario (UI - por sus siglas en inglés) de
