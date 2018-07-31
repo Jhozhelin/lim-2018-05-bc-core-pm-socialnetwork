@@ -53,20 +53,14 @@ firebase.database().ref('/users/').once('value').then(function(snapshot) {
 
 
 
-btnEdit.addEventListener('click', ()=>{
-  console.log('disteclick');
-});
+// btnEdit.addEventListener('click', ()=>{
+//   console.log('disteclick');
+// });
 
-btnRemove.addEventListener('click', ()=>{
-console.log('borreste todos yea');
-});
+// btnRemove.addEventListener('click', ()=>{
+// console.log('borreste todos yea');
+// });
 
-
-$(btnRemove).ready(function(){
-  $("button").click(function(){
-      $("boxPost").remove();
-  });
-});
 
 
 })
