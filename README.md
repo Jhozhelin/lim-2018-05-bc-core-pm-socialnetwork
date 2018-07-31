@@ -53,7 +53,7 @@ Algunos objetivos específicos:
 ![](https://fotos.subefotos.com/599ec90c962179ece469c5258bf9111bo.jpg)
 ![](https://fotos.subefotos.com/44918b74995928eb4307ec957558ef97o.jpg)
 ![](https://fotos.subefotos.com/4f11bf2cf3414445cfeeb725d3608f9bo.jpg)
-![](https://fotos.subefotos.com/46b71248ddd666afe17f9aa848c7f5e2o.jpg)
+![](https://fotos.subefotos.com/21b9e3f8e17f4ba6f7a3df0820db2c2eo.jpg)
 ![](https://fotos.subefotos.com/7e26ccdd9f01f8cf624d56e2aaa7f2a5o.jpg)
 
 
@@ -151,8 +151,9 @@ Para poder llegar a estas definiciones te recomendamos revisar: benchmarks, entr
 
 ## *Prototipo:*
 
-![(https://fotos.subefotos.com/f1d491e3c4c723a3e757ec471e563631o.jpg)
-![(https://fotos.subefotos.com/7b9d88cf099f331119b6c4814e7783bao.jpg)
+![](https://fotos.subefotos.com/f1d491e3c4c723a3e757ec471e563631o.jpg)
+
+![](https://fotos.subefotos.com/7b9d88cf099f331119b6c4814e7783bao.jpg)
 
 <!-- Debes definir cuál será el flujo que seguirá el usuario dentro de tu producto y
 con eso deberás diseñar la Interfaz de Usuario (UI - por sus siglas en inglés) de
