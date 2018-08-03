@@ -21,6 +21,13 @@ window.onload = () => {
   });
 }
 
+window.logout = () => {
+  firebase.auth().signOut().then(function () {
+    console.log('Cerro Sesión');
+  }).catch(function (error) {
+    console.log('Error al cerrar Sesión');
+  });
+}
 
 window.editPost = (postId, postData) => {
   const updates = {};

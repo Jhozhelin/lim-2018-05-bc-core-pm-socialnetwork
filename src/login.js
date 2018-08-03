@@ -1,15 +1,4 @@
- //Aquí conecto este proyecto con firebase
- const config = {
-  apiKey: "AIzaSyDI-aVXfUHJ1AbWbag7vv5NcVR6nm3xH5s",
-  authDomain: "login-red-social-d1b3e.firebaseapp.com",
-  databaseURL: "https://login-red-social-d1b3e.firebaseio.com",
-  projectId: "login-red-social-d1b3e",
-  storageBucket: "login-red-social-d1b3e.appspot.com",
-  messagingSenderId: "786540325191"
-};
-firebase.initializeApp(config);
-
-//**************DOM con index.html**************
+ //**************DOM con index.html**************
 
 //Variables que me conectan con index.html
 const btnGoogle = document.getElementById('btnGoogle');
@@ -68,7 +57,7 @@ btnFacebook.addEventListener('click', ()=>{
  });
 
 
-  /*firebase.auth().signInWithPopup(provider).then(function(result) {
+  firebase.auth().signInWithPopup(provider).then(function(result) {
     // This gives you a Facebook Access Token. You can use it to access the Facebook API.
     var token = result.credential.accessToken;
     // The signed-in user info.
@@ -91,5 +80,5 @@ btnFacebook.addEventListener('click', ()=>{
     // The firebase.auth.AuthCredential type that was used.
     var credential = error.credential;
     // ...
-  });*/
+  });
 

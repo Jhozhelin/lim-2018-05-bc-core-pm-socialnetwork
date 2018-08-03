@@ -255,3 +255,14 @@ footer{
     color: #ffffff;
     padding-top: 15px;
 }
+
+#card-contend{
+    margin-left: 50px;
+    margin-top: 50px;
+    width: 80%;
+}
+
+#card-text{
+    width: 50%;
+
+}

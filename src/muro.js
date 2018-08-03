@@ -1,81 +1,141 @@
-//Aquí conecto este proyecto con firebase
-const config = {
-  apiKey: "AIzaSyDI-aVXfUHJ1AbWbag7vv5NcVR6nm3xH5s",
-  authDomain: "login-red-social-d1b3e.firebaseapp.com",
-  databaseURL: "https://login-red-social-d1b3e.firebaseio.com",
-  projectId: "login-red-social-d1b3e",
-  storageBucket: "login-red-social-d1b3e.appspot.com",
-  messagingSenderId: "786540325191"
-};
-firebase.initializeApp(config);
+/* MANIPULACIÓN DEL DOM */
+const logout = document.getElementById('logout');
+const bd = document.getElementById('bd');
+const btnSave = document.getElementById('btnSave');
+const post = document.getElementById('card-text');
+console.log(post);
+const posts = document.getElementById('posts');
 
-// declarar la viable de tu cuadro de texto entrante, crear en tu html un contenedor
-// const contenedorPost=document.querySelector("#"+postId+" .udate-btn");
-const contenedorPost=document.getElementById("contentPost");
-const postArea=document.getElementById("postArea");
-const cuadroTexto=document.createElement("div");
-const textoPost= document.createElement("textarea");
-const btnEdit=document.createElement("button");
-const btnRemove=document.createElement("button");
-// const btnLogout = document.getElementById('btnLogout');
-  
-const crearPost=(valor)=>{
-// conun appenchild vaas a crear donde se va a mostrar tu tecto --- textarea(muestra tu texto), dos botones,editar y eliminar
 
-textoPost.textContent=valor;
-textoPost.className='boxPost';
+window.onload = () => {
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+      console.log('User is signed in.');
+/*       login.classList.add("hiden"); */
+/*       bd.classList.remove("hiden");
+      posts.classList.remove("hiden");
+      logout.classList.remove("hiden"); */
+/*       username.innerHTML = `Bienvenida ${user.displayName}`; */
+    } else {
+      console.log('No user is signed in.');
+/*       login.classList.remove("hiden");
+      logout.classList.add("hiden");
+      posts.classList.add("hiden");
+      bd.classList.add("hiden") */
+    }
+  });
+  const getPost = () => {
+    firebase.database().ref('/posts/').once('value').then(function (snapshot) {
+      const postsList = snapshot.val();
+      // console.log(postsList);
 
-btnEdit.textContent='Editar';
-btnEdit.className='btnEdit';
+      for (let postGeneral in postsList) {
+        console.log(postsList[postGeneral]);
+        let draw = `<p>${postsList[postGeneral].body}</p><br><button>editar</button><button>Eliminar</button>`
+        // console.log(posts);
+        posts.innerHTML += draw;
+      }
+      
 
-btnRemove.textContent='Eliminar';
-btnRemove.className='btnRemove';
-
-cuadroTexto.appendChild(textoPost);
-cuadroTexto.appendChild(btnEdit); /*boton para editar*/
-cuadroTexto.appendChild(btnRemove); /*boton para eliminar*/
-contenedorPost.appendChild(cuadroTexto); /*caja de contenido de post*/
-
-}
-const buttonPost = document.getElementById('buttonPost');
-buttonPost.addEventListener('click', ()=>{   console.log('diste click');    
-crearPost(postArea.value)
-  firebase.database().ref('users/').set({
-    text : postArea.value,
-    // userId : userId ,
-    // email: email,
-
-})
-
-firebase.database().ref('/users/').once('value').then(function(snapshot) {    
-    console.log(snapshot.val());
-    
-});
-
-const btnLogout = function(){
-firebase.auth().signOut()
-.then(function(){
-  console.log('ya temino la sesión');
-
-})
+    });
+  }
+  getPost();
 
 }
 
-//  btnLogout.addEventListener('click', () => { 
-//     console.log('Cerro Sesión');
-//   // }).catch(function (error) {
-    
+
+
+
+function writeUserData(userId, name, email, imageUrl) {
+  firebase.database().ref('users/' + userId).set({
+    username: name,
+    email: email,
+    profile_picture: imageUrl
+  });
+}
+
+
+function writeNewPost(uid, body) {
+  // A post entry.
+  const postData = {
+    uid: uid,
+    body: body,
+  };
+
+  // Get a key for a new Post.
+  const newPostKey = firebase.database().ref().child('posts').push().key;
   
+
+  // Write the new post's data simultaneously in the posts list and the user's post list.
+  const updates = {};
+  updates['/posts/' + newPostKey] = postData;
+  updates['/user-posts/' + uid + '/' + newPostKey] = postData;
+
+  firebase.database().ref().update(updates);
+
+  console.log(uid, body)
+  return newPostKey;
+}
+
+btnSave.addEventListener('click', () => {
+  console.log('funciono')
+   const userId = firebase.auth().currentUser.uid;
+   console.log(post.value)
+   const newPost = writeNewPost(userId, post.value);
+  console.log(userId);
+
+  const btnUpdate = document.createElement("input");
+  btnUpdate.setAttribute("value", "Update");
+  btnUpdate.setAttribute("type", "button");
+  const btnDelete = document.createElement("input");
+  btnDelete.setAttribute("value", "Delete");
+  btnDelete.setAttribute("type", "button");
+  const contPost = document.createElement('div');
+  const textPost = document.createElement('textarea')
+  textPost.setAttribute("id", newPost);
+
+  textPost.innerHTML = post.value;
+
+  btnDelete.addEventListener('click', () => {
+
+    firebase.database().ref().child('/user-posts/' + userId + '/' + newPost).remove();
+    firebase.database().ref().child('posts/' + newPost).remove();
+
+    // while (contPost.firstChild) contPost.removeChild(contPost.firstChild);
+
+    alert('Eliminar posts!');
+    reload_page();
+
+  });
+
+  btnUpdate.addEventListener('click', () => {
+    const newUpdate = document.getElementById(newPost);
+    const nuevoPost = {
+      body: newUpdate.value,
+    };
+
+    const updatesUser = {};
+    const updatesPost = {};
+
+    updatesUser['/user-posts/' + userId + '/' + newPost] = nuevoPost;
+    updatesPost['/posts/' + newPost] = nuevoPost;
+
+    firebase.database().ref().update(updatesUser);
+    firebase.database().ref().update(updatesPost);
+
+  });
+
+  contPost.appendChild(textPost);
+  contPost.appendChild(btnUpdate);
+  contPost.appendChild(btnDelete);
+  posts.appendChild(contPost); 
+
+})
+
+// btnLogout.addEventListener('click', () => {
+// logout()
 // })
 
-// btnEdit.addEventListener('click', ()=>{
-//   console.log('disteclick');
-// });
-
-// btnRemove.addEventListener('click', ()=>{
-// console.log('borreste todos yea');
-// });
-
-
-
-})
+function reload_page() {
+  window.location.reload();
+}
