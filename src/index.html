@@ -10,11 +10,10 @@
     <link rel="shortcut icon" href="img/marca.png" type="image/x-icon">
     <title>Con Gusto</title>
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
-
 </head>
 
 <body>
-        <!-- <picture>
+    <!-- <picture>
                 <img src="imag/limon.jpg" alt="" class="fondoImag">  Fallback 
         </picture> -->
 
@@ -23,20 +22,20 @@
             <img src="img/logoV.JPG">
         </div>
         <div id="boxLogin" class="boxLogin">
-            <h2 class="title" id="title">Iniciar Sesión</h2>
+            <h2 class="title">Iniciar Sesión</h2>
             <input type="text" placeholder="Correo electrónico" id="loginEmail">
-            
+
             <input type="password" placeholder="Contraseña" id="loginPassword">
-            
-            <input type="button" value="Entrar" id="buttonEnter">
-            
+
+            <input type="button" value="Entrar" id="btnLogin">
+
             <p class="other">o</p>
-            
+
             <div class="loginReds">
                 <input type="submit" value="Google" id="btnGoogle">
                 <input type="submit" value="Facebook" id="btnFacebook">
             </div>
-            
+
             <div class="boxCreateLogin">
                 <p>¿No tienes una cuenta?
                     <a href="#" id="createCuenta">
@@ -46,28 +45,33 @@
             </div>
         </div>
         <div id="boxRegister" class="boxRegister">
-            <h2 class="titletwo" id="titletwo">Crear Cuenta</h2>
-           
+            <h2 class="titletwo">Crear Cuenta</h2>
+
             <input type="text" placeholder="Correo electrónico" id="email">
-            
+
             <input type="password" placeholder="Contraseña" id="createPassword">
-            
+
             <!--<input type="password" placeholder="Confirmar Contraseña" id="confimPassword">
             <br>
             <br>-->
-            <input type="button" value="Registrarse" id="buttonregister">
-            
+            <input type="button" value="Registrarse" id="btnRegister">
+
             <div class="boxIngresarLogin">
                 <p>¿Tienes una cuenta?
-                    <a href="#" id="initSecion">
+                    <a href="#" id="initSesion">
                         <font color="#3E5DB4">Inicia Sesión</font>
                     </a>
                 </p>
             </div>
         </div>
     </div>
-    <script src="main.js"></script>
-    <script src="Data.js"></script>
+    <!-- Enlace con mi firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+
+    <!-- Enlace con mis documentos de js -->
+    <script src="data.js"></script>
+    <script src="login.js"></script>
+
 </body>
 
 </html>

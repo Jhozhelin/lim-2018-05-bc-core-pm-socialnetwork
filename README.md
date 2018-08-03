@@ -49,6 +49,28 @@ Algunos objetivos específicos:
 
 ![](https://fotos.subefotos.com/26973a6437a96f38dd29f454b50b7242o.jpg)
 
+## Benchmark
+
+Se realizo  benchmark con las siguientes redes sociles que estan relacionaddos a alimetación saludable:
+Links
+ALimentació Saludable:
+https://www.facebook.com/Alimentacion-saludable-904134086305763/?ref=br_rs
+
+Mafira Alimentación Saludable
+https://www.facebook.com/MafiraMX/
+
+Estar Bien:
+http://www.rimacestarbien.com/
+
+Nutrición Activa:
+http://www.nutricionactiva.com.mx/
+
+Con Gusto:
+https://jhozhelin.github.io/lim-2018-05-bc-core-pm-socialnetwork/src/
+
+
+![](https://fotos.subefotos.com/c5c5fd6d1de845982862a7af3c38a6a9o.jpg)
+
 ## ENCUESTA
 ![](https://fotos.subefotos.com/599ec90c962179ece469c5258bf9111bo.jpg)
 ![](https://fotos.subefotos.com/44918b74995928eb4307ec957558ef97o.jpg)
@@ -59,6 +81,7 @@ Algunos objetivos específicos:
 
 ## USER PERSONA
 ![](https://fotos.subefotos.com/2659c654a887f421f8be946fec1b442eo.jpg)
+
 
 <!-- 
 Desde el punto de vista de UX, deberás:  
@@ -107,12 +130,12 @@ RECURSO TRELLO
 
   
 * Quiénes son los principales usuarios de producto.
-  Personas que se alimentan saludablemente:
-  Edad: 25 a 30 años.
-  Traban y estudian.
-  Pasan al major parte del día conectados a redes sociales.  
-  
-  Estilo de vida: sofisticado
+
+  * Personas que se alimentan saludablemente:
+  * Edad: 25 a 30 años.
+  * Traban y estudian.
+  * Pasan al major parte del día conectados a redes sociales.  
+  * Estilo de vida: sofisticado
   
 * Cómo descubriste las necesidades de los usuarios.
   Descubrimos sus necesidades mediante encuetas globales y luego con entrevistas centradas en nuestro publico objetivo.
@@ -125,12 +148,13 @@ RECURSO TRELLO
 
 * Cuáles son los objetivos de estos usuarios en relación con el producto.
 
-  Relacionarser con divercidad de personas (profecionales) que puedan contribuir de  manera eficiente, correcta y conreta con sus inquetudes. 
+  Relacionarser con divercidad de personas como (profecionales) que puedan contribuir de  manera eficiente, correcta y conreta con sus inquetudes. 
 
 * Cuáles son las principales funcionalidades del producto y cuál es su prioridad.
-
+  Las principales funncionalidades del productos son: 
 
 * Cómo verificaste que el producto les está resolviendo sus problemas.
+  Realizando tests de usabilidad y realizando entrevistas a los usuarios 
 
 * Cómo te asegurarás que estos usuarios usen este producto.
   
@@ -140,6 +164,7 @@ Para poder llegar a estas definiciones te recomendamos revisar: benchmarks, entr
 
 
 ####  Diseño de la Interfaz de Usuario (prototipo de alta fidelidad)
+
 
 ##### *Diseño del login (prototipo):*
 
