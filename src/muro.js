@@ -1,29 +1,22 @@
 /* MANIPULACIÓN DEL DOM */
-const logout = document.getElementById('logout');
-const bd = document.getElementById('bd');
-const btnSave = document.getElementById('btnSave');
+const posts = document.getElementById('divPosts');
 const post = document.getElementById('card-text');
-console.log(post);
-const posts = document.getElementById('posts');
-
+const btnlogout = document.getElementById('logout');
+const btnSave = document.getElementById('btnSave');
 
 window.onload = () => {
-  firebase.auth().onAuthStateChanged(function (user) {
+  firebase.auth().onAuthStateChanged( (user) =>{
     if (user) {
+      console.log(user);
+
       console.log('User is signed in.');
-/*       login.classList.add("hiden"); */
-/*       bd.classList.remove("hiden");
-      posts.classList.remove("hiden");
-      logout.classList.remove("hiden"); */
-/*       username.innerHTML = `Bienvenida ${user.displayName}`; */
+
     } else {
+      location.href = 'index.html'
       console.log('No user is signed in.');
-/*       login.classList.remove("hiden");
-      logout.classList.add("hiden");
-      posts.classList.add("hiden");
-      bd.classList.add("hiden") */
     }
   });
+
   const getPost = () => {
     firebase.database().ref('/posts/').once('value').then(function (snapshot) {
       const postsList = snapshot.val();
@@ -31,29 +24,20 @@ window.onload = () => {
 
       for (let postGeneral in postsList) {
         console.log(postsList[postGeneral]);
-        let draw = `<p>${postsList[postGeneral].body}</p><br><button>editar</button><button>Eliminar</button>`
+        let draw = `<p>${postsList[postGeneral].body}</p>
+        <br>
+        <button>editar</button>
+        <button>Eliminar</button>`
         // console.log(posts);
         posts.innerHTML += draw;
       }
-      
+
 
     });
   }
   getPost();
 
 }
-
-
-
-
-function writeUserData(userId, name, email, imageUrl) {
-  firebase.database().ref('users/' + userId).set({
-    username: name,
-    email: email,
-    profile_picture: imageUrl
-  });
-}
-
 
 function writeNewPost(uid, body) {
   // A post entry.
@@ -64,7 +48,7 @@ function writeNewPost(uid, body) {
 
   // Get a key for a new Post.
   const newPostKey = firebase.database().ref().child('posts').push().key;
-  
+
 
   // Write the new post's data simultaneously in the posts list and the user's post list.
   const updates = {};
@@ -79,9 +63,9 @@ function writeNewPost(uid, body) {
 
 btnSave.addEventListener('click', () => {
   console.log('funciono')
-   const userId = firebase.auth().currentUser.uid;
-   console.log(post.value)
-   const newPost = writeNewPost(userId, post.value);
+  const userId = firebase.auth().currentUser.uid;
+  console.log(post.value)
+  const newPost = writeNewPost(userId, post.value);
   console.log(userId);
 
   const btnUpdate = document.createElement("input");
@@ -90,11 +74,13 @@ btnSave.addEventListener('click', () => {
   const btnDelete = document.createElement("input");
   btnDelete.setAttribute("value", "Delete");
   btnDelete.setAttribute("type", "button");
-  const contPost = document.createElement('div');
-  const textPost = document.createElement('textarea')
-  textPost.setAttribute("id", newPost);
 
-  textPost.innerHTML = post.value;
+  reload_page();
+  //const contPost = document.createElement('div');
+  //const textPost = document.createElement('textarea')
+  //textPost.setAttribute("id", newPost);
+
+  //textPost.innerHTML = post.value;
 
   btnDelete.addEventListener('click', () => {
 
@@ -128,13 +114,14 @@ btnSave.addEventListener('click', () => {
   contPost.appendChild(textPost);
   contPost.appendChild(btnUpdate);
   contPost.appendChild(btnDelete);
-  posts.appendChild(contPost); 
+  posts.appendChild(contPost);
 
 })
 
-// btnLogout.addEventListener('click', () => {
-// logout()
-// })
+btnlogout.addEventListener('click', () => {
+  logout()
+  window.location = 'index.html'
+})
 
 function reload_page() {
   window.location.reload();

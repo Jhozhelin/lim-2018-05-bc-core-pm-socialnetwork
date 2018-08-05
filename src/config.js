@@ -1,11 +1,10 @@
 //Aquí conecto este proyecto con firebase
-let config = {
-    apiKey: "AIzaSyDI-aVXfUHJ1AbWbag7vv5NcVR6nm3xH5s",
-    authDomain: "login-red-social-d1b3e.firebaseapp.com",
-    databaseURL: "https://login-red-social-d1b3e.firebaseio.com",
-    projectId: "login-red-social-d1b3e",
-    storageBucket: "login-red-social-d1b3e.appspot.com",
-    messagingSenderId: "786540325191"
-  };
-  
-  firebase.initializeApp(config);
+ const config = {
+  apiKey: "AIzaSyAXg6YEtXiVbZlT_gijsFyDVcTEkIE5XKw",
+  authDomain: "red-social-con-gusto.firebaseapp.com",
+  databaseURL: "https://red-social-con-gusto.firebaseio.com",
+  projectId: "red-social-con-gusto",
+  storageBucket: "",
+  messagingSenderId: "264235517792"
+};
+firebase.initializeApp(config);
