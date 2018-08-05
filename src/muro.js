@@ -1,72 +1,70 @@
 /* MANIPULACIÓN DEL DOM */
-const posts = document.getElementById('divPosts');
-const post = document.getElementById('card-text');
-const btnlogout = document.getElementById('logout');
-const btnSave = document.getElementById('btnSave');
+const posts = document.getElementById('divPosts'),
+  //Acá se almacenará el valor del boby del post
+  post = document.getElementById('card-text'),
+  btnlogout = document.getElementById('logout'),
+  btnSave = document.getElementById('btnSave'),
+  btnPublic = document.querySelector('#btn-public'),
+  btnPrivate = document.querySelector('#btn-private'),
+  nameUser = document.querySelector('.card-title')
+
+let postData = {
+  uid: null,
+  body: null,
+  author: null,
+  state: 'public',
+  starCount: 0
+};
 
 window.onload = () => {
-  firebase.auth().onAuthStateChanged( (user) =>{
+  firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      console.log(user);
-
-      console.log('User is signed in.');
+      // console.log(user);
+      postData.uid = user.uid;
+      postData.author = user.displayName;
+      nameUser.textContent = postData.author
+      // console.log(postData);
+      // console.log('El usuario esta logueado');
 
     } else {
       location.href = 'index.html'
-      console.log('No user is signed in.');
+      // console.log('No logueado.');
     }
   });
 
-  const getPost = () => {
-    firebase.database().ref('/posts/').once('value').then(function (snapshot) {
-      const postsList = snapshot.val();
+  getPost()
+    .then(result => {
+      const postsList = result.val();
       // console.log(postsList);
 
-      for (let postGeneral in postsList) {
-        console.log(postsList[postGeneral]);
-        let draw = `<p>${postsList[postGeneral].body}</p>
-        <br>
-        <button>editar</button>
-        <button>Eliminar</button>`
+      for (let unitPost in postsList) {
+        console.log(unitPost);
+        
+        console.log(postsList[unitPost]);
+        
+        let draw = `
+        <h6>${postsList[unitPost].author}</h6>
+        <textarea>${postsList[unitPost].body}</textarea>
+          <br>
+          <button id='${unitPost}'>Editar</button>
+          <button id='${unitPost}'>Eliminar</button>`
         // console.log(posts);
         posts.innerHTML += draw;
       }
-
-
     });
-  }
-  getPost();
+    btnPublic.checked = true;
 
-}
-
-function writeNewPost(uid, body) {
-  // A post entry.
-  const postData = {
-    uid: uid,
-    body: body,
-  };
-
-  // Get a key for a new Post.
-  const newPostKey = firebase.database().ref().child('posts').push().key;
-
-
-  // Write the new post's data simultaneously in the posts list and the user's post list.
-  const updates = {};
-  updates['/posts/' + newPostKey] = postData;
-  updates['/user-posts/' + uid + '/' + newPostKey] = postData;
-
-  firebase.database().ref().update(updates);
-
-  console.log(uid, body)
-  return newPostKey;
 }
 
 btnSave.addEventListener('click', () => {
   console.log('funciono')
   const userId = firebase.auth().currentUser.uid;
-  console.log(post.value)
-  const newPost = writeNewPost(userId, post.value);
+  // console.log(post.value)
+  postData.body = post.value
+  console.log(postData.body)
+  const newPost = writeNewPost(postData);
   console.log(userId);
+
 
   const btnUpdate = document.createElement("input");
   btnUpdate.setAttribute("value", "Update");
@@ -110,11 +108,11 @@ btnSave.addEventListener('click', () => {
     firebase.database().ref().update(updatesPost);
 
   });
-
-  contPost.appendChild(textPost);
-  contPost.appendChild(btnUpdate);
-  contPost.appendChild(btnDelete);
-  posts.appendChild(contPost);
+  /* 
+    contPost.appendChild(textPost);
+    contPost.appendChild(btnUpdate);
+    contPost.appendChild(btnDelete);
+    posts.appendChild(contPost); */
 
 })
 
@@ -126,3 +124,33 @@ btnlogout.addEventListener('click', () => {
 function reload_page() {
   window.location.reload();
 }
+
+
+btnPublic.addEventListener('click', () => {
+  postData.state = 'public'
+
+})
+
+
+btnPrivate.addEventListener('click', () => {
+  postData.state = 'private'
+
+})
+
+/* Hacemos que el div escuche el evento */
+posts.addEventListener('click', (e) => {
+
+  /*<h6>${postsList[unitPost].author}</h6>
+  <textarea class = 'textBody'>${postsList[unitPost].body}</textarea>
+    <br>
+    <button id='${unitPost}'>Editar</button>
+    <button id='${unitPost}'>Eliminar</button>`*/
+    
+ 
+console.log(e.target.textContent)
+if(e.target.nodeName  === 'BUTTON' && e.target.textContent === 'Editar'){
+  console.log(postData)
+  // editPost(e.target.id,postData)
+} 
+
+} )

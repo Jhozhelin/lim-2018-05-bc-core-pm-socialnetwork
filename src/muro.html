@@ -20,6 +20,7 @@
     crossorigin="anonymous"></script>
 
 </head>
+
 <body>
 
   <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -39,8 +40,22 @@
       <!-- Aquí colocaremos nuestra opción de publicar y todos los post -->
       <div id="card-contend" class="card w-75">
         <div class="card-body">
-          <h5 class="card-title">Post</h5>
+          <h5 class="card-title"></h5>
+          <!-- Checkbox de público y privado -->
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="btn-public" value="option1">
+            <label class="form-check-label" for="inlineRadio1">Público</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="btn-private" value="option2">
+            <label class="form-check-label" for="inlineRadio2">Privado</label>
+          </div>
+          <br>
+          <!-- Acá escribimos el post -->
           <textarea id="card-text" class="card-text" cols="60" rows="8"></textarea>
+          <br>
+
+          <!-- botón de publicar -->
           <button class="btn btn-primary" id="btnSave">Publicar</button>
         </div>
       </div>
@@ -62,4 +77,5 @@
   <script src="muro.js"></script>
 
 </body>
+
 </html>

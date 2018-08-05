@@ -109,31 +109,22 @@ window.logout = () => {
 
 //**********Función para crear post**********
 window.writeNewPost = (postData) => {
-  // A post entry.
-  const postData = {
-    uid: uid,
-    body: body,
-    author: null,
-    state: null,
-    starCount: 0
-  };
-
+  console.log(postData);
+ // A post entry.
   // Get a key for a new Post.
   const newPostKey = firebase.database().ref().child('posts').push().key;
-
-
   // Write the new post's data simultaneously in the posts list and the user's post list.
   const updates = {};
   updates['/posts/' + newPostKey] = postData;
-  updates['/user-posts/' + uid + '/' + newPostKey] = postData;
-
+  updates['/user-posts/' + postData.uid + '/' + newPostKey] = postData;
   firebase.database().ref().update(updates);
-
-  console.log(uid, body)
   return newPostKey;
 }
-//**********Función para editar post**********
 
+//**********Función para traers posts**********
+window.getPost = () => firebase.database().ref('/posts/').once('value')
+
+//**********Función para editar post**********
 window.editPost = (postId, postData) => {
   const updates = {};
   updates['/posts/' + postId] = postData;
@@ -141,8 +132,9 @@ window.editPost = (postId, postData) => {
   return firebase.database().ref().update(updates);
 }
 
-//Esta funcion permite eliminar posts
+//**********Función para eliminar post**********
 window.deletePost = (postId, uid) => {
   firebase.database().ref('/posts/').child(postId).remove();
   //firebase.database().ref('/user-posts/' + uid + '/').child(postId).remove();
 }
+
