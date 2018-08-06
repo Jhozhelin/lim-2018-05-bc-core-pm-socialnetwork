@@ -4,13 +4,13 @@
     font-family: 'Roboto', sans-serif;
 }
 .containerLogin{ 
-    /*background-image: url("img/selfie.jpg");
+    background-image: url("img/Beach.jpg");
     background-position: center;
 	background-attachment: fixed;
 	background-size: cover;
-    background-repeat: no-repeat;*/
-    /*background-color: rgb(57, 194, 185);
-    background-color: rgb(52, 178, 216);*/
+    background-repeat: no-repeat;
+    background-color: rgb(57, 194, 185);
+    background-color: rgb(52, 178, 216);
     background-color: #F2F2F2;
     background-position: center;
 	background-attachment: fixed;
@@ -39,9 +39,14 @@
     padding: 30px 20px;
 }
 
-.imglogin img{
-    width: 100%;
-    height: auto;
+.imglogin img{    
+    max-width: 50%;
+    margin-left: 100px;
+    margin: 0;
+    padding: 0;
+    border: 0;    
+    vertical-align: baseline;
+
 }
 
 .title{
@@ -264,5 +269,12 @@ footer{
 
 #card-text{
     width: 50%;
+
+}
+
+#btnSave{
+    border-color:#58990d ;
+    background-color: #67aa21;
+    color: #fff;
 
 }

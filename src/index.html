@@ -2,76 +2,80 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="shortcut icon" href="img/marca.png" type="image/x-icon">
-    <title>Con Gusto</title>
-    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="shortcut icon" href="img/marca.png" type="image/x-icon">
+  <title>Con Gusto</title>
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
 </head>
 
 <body>
-    <!-- <picture>
+  <!-- <picture>
                 <img src="imag/limon.jpg" alt="" class="fondoImag">  Fallback 
         </picture> -->
 
-    <div class="containerLogin" id="containerLogin">
-        <div class="imglogin" id="imglogin">
-            <img src="img/logoV.JPG">
-        </div>
-        <div id="boxLogin" class="boxLogin">
-            <h2 class="title">Iniciar Sesión</h2>
-            <input type="text" placeholder="Correo electrónico" id="loginEmail">
+  <div class="containerLogin" id="containerLogin">
 
-            <input type="password" placeholder="Contraseña" id="loginPassword">
+    <div id="boxLogin" class="boxLogin">
+      <div class="imglogin" id="imglogin">
+        <img src="img/logo-CG.png">
+      </div>
+      <h2 class="title">Iniciar Sesión</h2>
+      <input type="text" placeholder="Correo electrónico" id="loginEmail">
 
-            <input type="button" value="Entrar" id="btnLogin">
+      <input type="password" placeholder="Contraseña" id="loginPassword">
 
-            <p class="other">o</p>
+      <input type="button" value="Entrar" id="btnLogin">
 
-            <div class="loginReds">
-                <input type="submit" value="Google" id="btnGoogle">
-                <input type="submit" value="Facebook" id="btnFacebook">
-            </div>
+      <p class="other">o</p>
 
-            <div class="boxCreateLogin">
-                <p>¿No tienes una cuenta?
-                    <a href="#" id="createCuenta">
-                        <font color="#3E5DB4">Crear cuenta</font>
-                    </a>
-                </p>
-            </div>
-        </div>
-        <div id="boxRegister" class="boxRegister">
-            <h2 class="titletwo">Crear Cuenta</h2>
+      <div class="loginReds">
+        <input type="submit" value="Google" id="btnGoogle">
+        <input type="submit" value="Facebook" id="btnFacebook">
+      </div>
 
-            <input type="text" placeholder="Correo electrónico" id="email">
+      <div class="boxCreateLogin">
+        <p>¿No tienes una cuenta?
+          <a href="#" id="createCuenta">
+            <font color="#3E5DB4">Crear cuenta</font>
+          </a>
+        </p>
+      </div>
+    </div>
+    <div id="boxRegister" class="boxRegister">
+      <div class="imglogin" id="imglogin">
+        <img src="img/logo-CG.png">
+      </div>
+      <h2 class="titletwo">Crear Cuenta</h2>
 
-            <input type="password" placeholder="Contraseña" id="createPassword">
+      <input type="text" placeholder="Correo electrónico" id="email">
 
-            <!--<input type="password" placeholder="Confirmar Contraseña" id="confimPassword">
+      <input type="password" placeholder="Contraseña" id="createPassword">
+
+      <!--<input type="password" placeholder="Confirmar Contraseña" id="confimPassword">
             <br>
             <br>-->
-            <input type="button" value="Registrarse" id="btnRegister">
+      <input type="button" value="Registrarse" id="btnRegister">
 
-            <div class="boxIngresarLogin">
-                <p>¿Tienes una cuenta?
-                    <a href="#" id="initSesion">
-                        <font color="#3E5DB4">Inicia Sesión</font>
-                    </a>
-                </p>
-            </div>
-        </div>
+      <div class="boxIngresarLogin">
+        <p>¿Tienes una cuenta?
+          <a href="#" id="initSesion">
+            <font color="#3E5DB4">Inicia Sesión</font>
+          </a>
+        </p>
+      </div>
     </div>
-    <!-- Enlace con mi firebase -->
-    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+  </div>
+  <!-- Enlace con mi firebase -->
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
 
-    <!-- Enlace con mis documentos de js -->
-    <script src="config.js"></script>
-    <script src="data.js"></script>
-    <script src="login.js"></script>
+  <!-- Enlace con mis documentos de js -->
+  <script src="config.js"></script>
+  <script src="data.js"></script>
+  <script src="login.js"></script>
 
 </body>
 
