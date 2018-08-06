@@ -1,4 +1,4 @@
-﻿# Red social Healthy Life
+﻿# Red social Con Gusto - Una vida saludable.
 _Proyecto diseñado y elaborado por Jhoselin Mancilla para el  bootcamp de Laboratoria 2018._
 
 ## DEMO
@@ -165,9 +165,8 @@ Incluyendo novedades en la aplicación cada cierto tiempo. Esto, actualizando nu
 ##### *Diseño del login (prototipo):*
 ## *Sketch:*
 
-![](https://fotos.subefotos.com/32db1e6e6669609c18506f2c051ed2e8o.jpg)
-![](https://fotos.subefotos.com/79968b3efd54efa8ae8d1a5d3be0beb0o.jpg)
-![](https://fotos.subefotos.com/a0fe51a566b5d37c4a1c22489ab6378ao.jpg)
+![](https://fotos.subefotos.com/91075bff7e7cff9ec82fa146a102b4b5o.jpg)
+![](https://fotos.subefotos.com/d952a8d74054d675f6b908168c4afcb2o.jpg)
 
 ## *Prototipo:*
 
