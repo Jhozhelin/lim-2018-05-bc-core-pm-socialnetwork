@@ -140,9 +140,10 @@ RECURSO TRELLO
 * Cómo descubriste las necesidades de los usuarios.
   Descubrimos sus necesidades mediante encuetas globales y luego con entrevistas centradas en nuestro publico objetivo.
 
-* Qué problema resuelve el producto para  estos usuarios.
 
-  Los usuarios no tienen un medio espesifico por el cual puedan manifertas inquetudes y conpartir informacion.
+* Qué problema resuelve el producto para estos usuarios.
+
+  Los usuarios no tienen un medio espesifico por el cual puedan manifestar inquetudes y conpartir informacion.
 
   Los usuarios no encuentras muchas fuentes de informacion veridicas. 
 
