@@ -128,7 +128,6 @@ RECURSO TRELLO
   * Elemento Tecnológico
   * Elemento Jurídico
 
-  
 * Quiénes son los principales usuarios de producto.
 
   * Personas que se alimentan saludablemente:
@@ -153,22 +152,17 @@ RECURSO TRELLO
 
 * Cuáles son las principales funcionalidades del producto y cuál es su prioridad.
   Las principales funncionalidades del productos son: 
+  El usuario puedo crear su cuenta y registrarse.
+  El usuario puede loguearse con facebook y google.
+  El usuario puede realizar una publicación.
 
 * Cómo verificaste que el producto les está resolviendo sus problemas.
   Realizando tests de usabilidad y realizando entrevistas a los usuarios 
 
 * Cómo te asegurarás que estos usuarios usen este producto.
-  
-
-Para poder llegar a estas definiciones te recomendamos revisar: benchmarks, entrevistas con usuarios y tests de usabilidad.
-
-
-
+Incluyendo novedades en la aplicación cada cierto tiempo. Esto, actualizando nuestro benchmark.
 ####  Diseño de la Interfaz de Usuario (prototipo de alta fidelidad)
-
-
 ##### *Diseño del login (prototipo):*
-
 ## *Sketch:*
 
 ![](https://fotos.subefotos.com/32db1e6e6669609c18506f2c051ed2e8o.jpg)
