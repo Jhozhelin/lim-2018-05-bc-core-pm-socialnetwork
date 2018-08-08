@@ -40,14 +40,14 @@ window.onload = () => {
       for (let unitPost in postsList) {
         console.log(unitPost);
         
-        console.log(postsList[unitPost]);
+        //console.log(postsList[unitPost]);
         
-        let draw = `
+        let draw = `<div id='${unitPost}'>
         <h6>${postsList[unitPost].author}</h6>
         <textarea>${postsList[unitPost].body}</textarea>
           <br>
           <button id='${unitPost}'>Editar</button>
-          <button id='${unitPost}'>Eliminar</button>`
+          <button id='${unitPost}'>Eliminar</button></div>`
         // console.log(posts);
         posts.innerHTML += draw;
       }
@@ -66,12 +66,12 @@ btnSave.addEventListener('click', () => {
   console.log(userId);
 
 
-  const btnUpdate = document.createElement("input");
-  btnUpdate.setAttribute("value", "Update");
-  btnUpdate.setAttribute("type", "button");
-  const btnDelete = document.createElement("input");
-  btnDelete.setAttribute("value", "Delete");
-  btnDelete.setAttribute("type", "button");
+  // const btnEdit = document.createElement("input");
+  // btnEdit.setAttribute("value", "Editar");
+  // btnEdit.setAttribute("type", "button");
+  // const btnDelete = document.createElement("input");
+  // btnDelete.setAttribute("value", "Delete");
+  // btnDelete.setAttribute("type", "button");
 
   reload_page();
   //const contPost = document.createElement('div');
@@ -81,9 +81,10 @@ btnSave.addEventListener('click', () => {
   //textPost.innerHTML = post.value;
 
   btnDelete.addEventListener('click', () => {
+    deletePost(postId, uid) 
 
-    firebase.database().ref().child('/user-posts/' + userId + '/' + newPost).remove();
-    firebase.database().ref().child('posts/' + newPost).remove();
+
+    
 
     // while (contPost.firstChild) contPost.removeChild(contPost.firstChild);
 
@@ -92,7 +93,7 @@ btnSave.addEventListener('click', () => {
 
   });
 
-  btnUpdate.addEventListener('click', () => {
+  btnEdit.addEventListener('click', () => {
     const newUpdate = document.getElementById(newPost);
     const nuevoPost = {
       body: newUpdate.value,
@@ -110,7 +111,7 @@ btnSave.addEventListener('click', () => {
   });
   /* 
     contPost.appendChild(textPost);
-    contPost.appendChild(btnUpdate);
+    contPost.appendChild(btnEdit);
     contPost.appendChild(btnDelete);
     posts.appendChild(contPost); */
 
