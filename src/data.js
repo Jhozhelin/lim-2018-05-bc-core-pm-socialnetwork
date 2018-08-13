@@ -134,17 +134,24 @@ window.writeNewPost = (postData) => {
 window.getPost = () => firebase.database().ref('/posts/').once('value')
 
 //**********Función para editar post**********
-window.editPost = (postId, postData) => {
+window.editPost = (userId, text, postId) => {
+  firebase.database().ref('user-psots/' + userId + '/' + postId)
+    .update({
+      body: text
+    });
 
-  const updates = {};
-  updates['/posts/' + postId] = postData;
-  //updates['/user-posts/' + postData.uid + '/' + postId] = postData;
-  return firebase.database().ref().update(updates);
+  firebase.database().ref('posts/' + postId).update({
+    body:text
+  });
 }
 
 //**********Función para eliminar post**********
-window.deletePost = (postId, uid) => {
-  firebase.database().ref().child('/posts/' + userId + '/' + postId).remove();
-  firebase.database().ref().child('posts/' + postId).remove();
+window.deletePost = (userId, postId) => {
+  firebase.database().ref().child('/user-post/' + userId + '/' + postId)
+  .remove();
+  firebase.database().ref().child('posts/' + postId)
+  .remove();
 }
+
+
 
