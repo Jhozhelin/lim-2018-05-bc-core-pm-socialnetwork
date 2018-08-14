@@ -16,62 +16,117 @@ let postData = {
   starCount: 0
 };
 
+
+
 window.onload = () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      // console.log(user);
       postData.uid = user.uid;
       postData.author = user.displayName;
       nameUser.textContent = postData.author
-      // console.log(postData);
-      // console.log('El usuario esta logueado');
+
+
 
     } else {
       location.href = 'index.html'
-      // console.log('No logueado.');
     }
   });
 
   getPost()
     .then(result => {
+      //const postsList = unitPost
       const postsList = result.val();
-      // console.log(postsList);
-
       for (let unitPost in postsList) {
-        console.log(unitPost);
-        
-        //console.log(postsList[unitPost]);
-        
+
+
+
+
+
         let draw = `<div id='${unitPost}'>
         <h6>${postsList[unitPost].author}</h6>
-        <textarea>${postsList[unitPost].body}</textarea>
+        <textarea id='text-${unitPost}'>${postsList[unitPost].body}</textarea>
           <br>
           <button id='${unitPost}'>Editar</button>
           <button id='${unitPost}'>Eliminar</button></div>`
-        // console.log(posts);
+
         posts.innerHTML += draw;
+
+
       }
+
     });
-    btnPublic.checked = true;
+  btnPublic.checked = true;
 
 }
 
+
+
+//divPost escuchando el evento para llamr a las funciones eliminar y editar
+posts.addEventListener('click', (event) => {
+  //console.log(document.getElementById(`text-${event.target.id}`).textContent);
+  
+   const idPost = event.target.id
+  console.log(idPost);
+  
+  const idUser = postData.uid
+    console.log(idUser);
+
+  if (event.target.nodeName === 'BUTTON' && event.target.textContent === 'Editar') {
+    console.log('llamar a la función de editar posts') 
+    //console.log(postId)
+    const textPost = document.getElementById(`text-${event.target.id}`).value;
+    //console.log(postData.uid );
+    const idUser = postData.uid
+    console.log(idUser);
+    
+
+    editPost(idUser, textPost, idPost)
+    alert('Se edito correctamente')
+    reload_page()    
+    
+
+  }
+  else if (event.target.nodeName === 'BUTTON' && event.target.textContent === 'Eliminar') {
+  console.log('llamar a la función de eliminar posts');
+  
+  deletePost(idUser, idPost)
+  alert('Se elimino correctamente')
+  reload_page()
+
+  }
+})
+
+// const btnEdit = document.getElementById(`btn-edit-${unitPost}`)
+
+// btnEdit.addEventListener('click', () => {
+
+
+//   // let newUpdate = document.getElementById(newPost);
+//   let textoNuevo = document.getElementById(`cuerpoPost-${unitPost}`).value
+//   const nuevoPost = {
+//     body: textoNuevo,
+//   };
+
+//   const updatesUser = {};
+//   const updatesPost = {};
+
+//   updatesUser['/user-posts/' + userId + '/' + newPost] = nuevoPost;
+//   updatesPost['/posts/' + newPost] = nuevoPost;
+
+//   firebase.database().ref().update(updatesUser);
+//   firebase.database().ref().update(updatesPost);
+
+// });
+
+//*********función de publicar//**********
+
 btnSave.addEventListener('click', () => {
-  console.log('funciono')
   const userId = firebase.auth().currentUser.uid;
-  // console.log(post.value)
   postData.body = post.value
-  console.log(postData.body)
   const newPost = writeNewPost(postData);
-  console.log(userId);
 
 
-  // const btnEdit = document.createElement("input");
-  // btnEdit.setAttribute("value", "Editar");
-  // btnEdit.setAttribute("type", "button");
-  // const btnDelete = document.createElement("input");
-  // btnDelete.setAttribute("value", "Delete");
-  // btnDelete.setAttribute("type", "button");
+
 
   reload_page();
   //const contPost = document.createElement('div');
@@ -80,40 +135,19 @@ btnSave.addEventListener('click', () => {
 
   //textPost.innerHTML = post.value;
 
-  btnDelete.addEventListener('click', () => {
-    deletePost(postId, uid) 
+  // btnDelete.addEventListener('click', () => {
+  //   // deletePost(postId, uid) 
 
 
-    
 
-    // while (contPost.firstChild) contPost.removeChild(contPost.firstChild);
 
-    alert('Eliminar posts!');
-    reload_page();
+  //   // while (contPost.firstChild) contPost.removeChild(contPost.firstChild);
 
-  });
+  //   // alert('Eliminar posts!');
+  //   reload_page();
 
-  btnEdit.addEventListener('click', () => {
-    const newUpdate = document.getElementById(newPost);
-    const nuevoPost = {
-      body: newUpdate.value,
-    };
+  // });
 
-    const updatesUser = {};
-    const updatesPost = {};
-
-    updatesUser['/user-posts/' + userId + '/' + newPost] = nuevoPost;
-    updatesPost['/posts/' + newPost] = nuevoPost;
-
-    firebase.database().ref().update(updatesUser);
-    firebase.database().ref().update(updatesPost);
-
-  });
-  /* 
-    contPost.appendChild(textPost);
-    contPost.appendChild(btnEdit);
-    contPost.appendChild(btnDelete);
-    posts.appendChild(contPost); */
 
 })
 
@@ -137,21 +171,3 @@ btnPrivate.addEventListener('click', () => {
   postData.state = 'private'
 
 })
-
-/* Hacemos que el div escuche el evento */
-posts.addEventListener('click', (e) => {
-
-  /*<h6>${postsList[unitPost].author}</h6>
-  <textarea class = 'textBody'>${postsList[unitPost].body}</textarea>
-    <br>
-    <button id='${unitPost}'>Editar</button>
-    <button id='${unitPost}'>Eliminar</button>`*/
-    
- 
-console.log(e.target.textContent)
-if(e.target.nodeName  === 'BUTTON' && e.target.textContent === 'Editar'){
-  console.log(postData)
-  // editPost(e.target.id,postData)
-} 
-
-} )
