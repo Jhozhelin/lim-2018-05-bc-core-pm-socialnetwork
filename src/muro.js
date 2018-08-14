@@ -6,7 +6,9 @@ const posts = document.getElementById('divPosts'),
   btnSave = document.getElementById('btnSave'),
   btnPublic = document.querySelector('#btn-public'),
   btnPrivate = document.querySelector('#btn-private'),
-  nameUser = document.querySelector('.card-title')
+  nameUser = document.querySelector('.card-title'),
+  profileDiv = document.getElementById('profile')
+
 
 let postData = {
   uid: null,
