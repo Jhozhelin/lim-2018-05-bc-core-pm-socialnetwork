@@ -33,7 +33,8 @@ window.onload = () => {
       location.href = 'index.html'
     }
   });
-  showPosts('Muro')
+  
+  // showPosts('Muro')
   // showPosts('Perfil')
 
 
@@ -76,17 +77,19 @@ const showPosts = (view) => {
         if (view === 'Muro') {
           draw += "<button id='${unitPost}'>Me gusta</button>"
           console.log('hola');
-          profileDiv.innerHTML += draw;
+          
+
+          profileDiv.innerHTML = draw;
         }
 
         else if (view === 'Perfil') {
           draw += `<button id=${unitPost}>Editar</button>
             <button id=${unitPost}>Eliminar</button>`
-            posts.innerHTML += draw;
+            
+            posts.innerHTML = draw;
+            
         }
-
-        // hola(unitPost);
-
+        
       }
 
     });
@@ -117,24 +120,24 @@ posts.addEventListener('click', (event) => {
   if (event.target.nodeName === 'BUTTON' && event.target.textContent === 'Editar') {
     console.log('llamar a la función de editar posts')
     //console.log(postId)
-   const textPost = document.getElementById(`text-${event.target.id}`)
+   const textPost = document.getElementById(`text-${event.target.id}`).value
     //console.log(postData.uid );
     const idUser = postData.uid
-    console.log(idUser);
+    // console.log(idUser);
 
 
     editPost(idUser, textPost, idPost)
     alert('Se edito correctamente')
     reload_page()
-
+    
 
   }
   else if (event.target.nodeName === 'BUTTON' && event.target.textContent === 'Eliminar') {
   console.log('llamar a la función de eliminar posts');
 
     deletePost(idUser, idPost)
-    //alert('Se elimino correctamente')
-    //reload_page()
+    alert('Se elimino correctamente')
+    reload_page()
 
   }
 })
@@ -170,10 +173,7 @@ btnSave.addEventListener('click', () => {
   postData.body = post.value
   const newPost = writeNewPost(postData)
 
-
-
-
-  reload_page();
+   //reload_page();
   //const contPost = document.createElement('div');
   //const textPost = document.createElement('textarea')
   //textPost.setAttribute("id", newPost);
@@ -189,7 +189,7 @@ btnSave.addEventListener('click', () => {
   //   // while (contPost.firstChild) contPost.removeChild(contPost.firstChild);
 
   //   // alert('Eliminar posts!');
-  //   reload_page();
+   reload_page();
 
   // });
 

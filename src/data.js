@@ -136,27 +136,28 @@ window.getPost = () => firebase.database().ref('/posts/').once('value')
 //**********Función para editar post**********
 window.editPost = (userId, text, postId) => {
   console.log(userId, text, postId);
-  
+
   firebase.database().ref('user-posts/' + userId + '/' + postId)
     .update({
       body: text
     });
 
-  firebase.database().ref('posts/' + postId).update({
-    body:text
-  });
+  firebase.database().ref('posts/' + postId)
+    .update({
+      body: text
+    });
 }
 
 //**********Función para eliminar post**********
 window.deletePost = (userId, postId) => {
   console.log(userId);
   console.log(postId);
-  
-  
+
+
   firebase.database().ref().child('/user-posts/' + userId + '/' + postId)
-  .remove();
+    .remove();
   firebase.database().ref().child('posts/' + postId)
-  .remove();
+    .remove();
 }
 
 
