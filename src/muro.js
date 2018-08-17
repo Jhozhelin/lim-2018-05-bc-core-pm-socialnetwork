@@ -34,8 +34,9 @@ window.onload = () => {
     }
   });
   
-  // showPosts('Muro')
-  // showPosts('Perfil')
+  
+  //showPosts('Muro')
+   //showPosts('Perfil')
 
 
 
@@ -79,14 +80,14 @@ const showPosts = (view) => {
           console.log('hola');
           
 
-          profileDiv.innerHTML = draw;
+          profileDiv.innerHTML += draw;
         }
 
         else if (view === 'Perfil') {
           draw += `<button id=${unitPost}>Editar</button>
             <button id=${unitPost}>Eliminar</button>`
             
-            posts.innerHTML = draw;
+            posts.innerHTML += draw;
             
         }
         

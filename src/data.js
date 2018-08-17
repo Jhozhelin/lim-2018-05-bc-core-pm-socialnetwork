@@ -18,7 +18,6 @@ window.register = (email, password) => {
     .then(result => {
       console.log(result);
       writeUserData(result.user.uid, null, result.user.email, null)
-
     })
     .catch(function (error) {
       // Handle Errors here.
@@ -160,5 +159,31 @@ window.deletePost = (userId, postId) => {
     .remove();
 }
 
+//****************funcion de likes ***************
+// window.likePosts = (userId, postId, starCount)
+//  firebase.database().ref('posts/' + postId + '/starCount');
+// starCountRef.on('value', function(snapshot) {
+//   updateStarCount(postElement, snapshot.val());
 
 
+// });
+
+
+// //**********Función para contar los likes***********
+// window.likePosts = (userId, postId, ) => {
+// //******************** lee la cantidad de likes que contiene*****/
+// firebase.database().ref('/posts/' + postId).once('value').then(function (snapshot){
+//   let likes = snapshot.val().likes
+// //********************función de suma 1 a likes */
+// likes = likes + 1
+// })
+// //*******************Actualizar los likes */
+// firebase.database().ref('/posts/' + postId).update({
+//   likes: likes
+// },
+// (error) => {
+//   alert('No puede dar like otravez')
+
+// })
+
+// }
