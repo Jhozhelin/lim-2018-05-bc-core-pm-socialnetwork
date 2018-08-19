@@ -159,14 +159,20 @@ window.deletePost = (userId, postId) => {
     .remove();
 }
 
-//****************funcion de likes ***************
-// window.likePosts = (userId, postId, starCount)
-//  firebase.database().ref('posts/' + postId + '/starCount');
-// starCountRef.on('value', function(snapshot) {
-//   updateStarCount(postElement, snapshot.val());
 
 
-// });
+// ****************funcion de likes ***************
+window.likePost = (like, userId, postId, starCount) =>{
+ firebase.database().ref('user-posts/' + userId + '/postId')
+ .update({
+   starCount: like
+ });
+ firebase.database().ref('posts/' + postId + starCount)
+ .update({
+   userId
+ });
+
+};
 
 
 // //**********Función para contar los likes***********

@@ -33,10 +33,10 @@ window.onload = () => {
       location.href = 'index.html'
     }
   });
-  
-  
+
+
   //showPosts('Muro')
-   //showPosts('Perfil')
+  //showPosts('Perfil')
 
 
 
@@ -46,7 +46,7 @@ window.onload = () => {
 //mostrar la información en el Muro
 const contHome = document.getElementById('home-tab')
 contHome.addEventListener('click', () => {
-showPosts('Muro')
+  showPosts('Muro')
 
 })
 
@@ -70,41 +70,60 @@ const showPosts = (view) => {
     <h6>${postsList[unitPost].author}</h6>
     <textarea id='text-${unitPost}'>${postsList[unitPost].body}</textarea>
       <br>`
-        // <button id='${unitPost}'>Editar</button>
-        // <button id='${unitPost}'>Eliminar</button></div>
-        //<button id='${unitPost}'>Me gusta</button></div>
-        //console.log('me diste click');
 
         if (view === 'Muro') {
-          draw += "<button id='${unitPost}'>Me gusta</button>"
+          draw += `<button id=${unitPost}>Me gusta</button>`
           console.log('hola');
-          
 
           profileDiv.innerHTML += draw;
-        }
-
-        else if (view === 'Perfil') {
+        } else if (view === 'Perfil') {
           draw += `<button id=${unitPost}>Editar</button>
             <button id=${unitPost}>Eliminar</button>`
-            
-            posts.innerHTML += draw;
-            
+
+          posts.innerHTML += draw;
+
         }
-        
+
       }
 
     });
 
 }
- btnPublic.checked = true;
+btnPublic.checked = true;
 
 // const hola = (unitPost) => {
 //   const btnEliminar = document.getElementById('eliminar' + unitPost);
 //         btnEliminar.addEventListener('click', () => {
 //           console.log('hice click a eliminar')
-          
+
 //         })
 // }
+let starCount = 0;
+
+//profileDiv escuchando el evento para llama a la función like
+profileDiv.addEventListener('click', (event) => {
+
+  console.log(profileDiv);
+   starCount++;
+  // starCount = starCount + 1;
+
+  const idPost = event.target.id
+  console.log(idPost);
+
+  const idUser = postData.uid
+  console.log(idUser);
+
+  if (event.target.nodeName === 'BUTTON' && event.target.textContent === 'Me gusta') {
+    console.log('llamar a la función de me gusta')
+    likePost(like, userId, postId)
+  }
+  firebase.database().ref('user-posts/' + userId + '/postId')
+ .update({
+   starCount: like
+ });
+})
+
+
 
 //divPost escuchando el evento para llamr a las funciones eliminar y editar
 posts.addEventListener('click', (event) => {
@@ -121,20 +140,19 @@ posts.addEventListener('click', (event) => {
   if (event.target.nodeName === 'BUTTON' && event.target.textContent === 'Editar') {
     console.log('llamar a la función de editar posts')
     //console.log(postId)
-   const textPost = document.getElementById(`text-${event.target.id}`).value
+    const textPost = document.getElementById(`text-${event.target.id}`).value
     //console.log(postData.uid );
     const idUser = postData.uid
-    // console.log(idUser);
+    console.log(idUser);
 
 
     editPost(idUser, textPost, idPost)
     alert('Se edito correctamente')
     reload_page()
-    
 
-  }
-  else if (event.target.nodeName === 'BUTTON' && event.target.textContent === 'Eliminar') {
-  console.log('llamar a la función de eliminar posts');
+
+  } else if (event.target.nodeName === 'BUTTON' && event.target.textContent === 'Eliminar') {
+    console.log('llamar a la función de eliminar posts');
 
     deletePost(idUser, idPost)
     alert('Se elimino correctamente')
@@ -174,7 +192,7 @@ btnSave.addEventListener('click', () => {
   postData.body = post.value
   const newPost = writeNewPost(postData)
 
-   //reload_page();
+  //reload_page();
   //const contPost = document.createElement('div');
   //const textPost = document.createElement('textarea')
   //textPost.setAttribute("id", newPost);
@@ -190,7 +208,7 @@ btnSave.addEventListener('click', () => {
   //   // while (contPost.firstChild) contPost.removeChild(contPost.firstChild);
 
   //   // alert('Eliminar posts!');
-   reload_page();
+  reload_page();
 
   // });
 
