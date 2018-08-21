@@ -162,14 +162,14 @@ window.deletePost = (userId, postId) => {
 
 
 // ****************funcion de likes ***************
-window.likePost = (like, userId, postId, starCount) =>{
+window.likePost = (starCount, userId, postId) =>{
  firebase.database().ref('user-posts/' + userId + '/postId')
  .update({
    starCount: like
  });
- firebase.database().ref('posts/' + postId + starCount)
+ firebase.database().ref('posts/' + postId)
  .update({
-   userId
+  starCount: like
  });
 
 };

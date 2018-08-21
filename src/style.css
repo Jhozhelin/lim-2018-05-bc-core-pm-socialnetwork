@@ -3,6 +3,13 @@
     padding: 0px;
     font-family: 'Roboto', sans-serif;
 }
+
+/* .backgroundImg{   
+background-image: url("img/Beach.jpg");
+width: 100%;
+height: 100vh;
+} */
+
 .containerLogin{ 
     background-image: url("img/Beach.jpg");
     background-position: center;
@@ -278,3 +285,117 @@ footer{
     color: #fff;
 
 }
+
+.advertising{
+    display: inline-block;
+    border-radius: 5px;
+    background-color: #E5E3E3;
+    text-align: center;
+    margin: 10px;
+    padding: 5px;
+  }
+
+.right{
+    width: 25%;
+  }
+
+  @media only screen and (max-width: 1440px) {
+    .boxLogin{
+        width: 25%;
+        height: 470px;
+    } 
+
+    .containerLogin input[type=password]{
+        width: 90%;
+    }
+    .containerLogin input[type=text]{
+        width: 90%;
+    }
+
+  }
+
+
+  @media only screen and (max-width: 1024px) {
+    .boxLogin{
+        width: 30%;
+        height: 470px;
+    }  
+
+    .containerLogin input[type=password]{
+        width: 90%px;
+    }
+    .containerLogin input[type=text]{
+        width: 90%px;
+    }
+}
+
+
+    @media only screen and (max-width: 1000px)  and (max-width: 776px)  {
+    .boxLogin{
+        width: 50%;
+        height: 470px;
+    }  
+}
+
+
+  @media only screen and (max-width: 768px) {
+    .right{
+      display: none;
+    }
+
+    .boxLogin{
+        width: 40%;
+        height: 470px;
+    }
+
+    .containerLogin input[type=password]{
+        width: 85%;
+    }
+    .containerLogin input[type=text]{
+        width: 85%;
+    }    
+}
+
+
+@media only screen and (max-width: 425px) {
+    .right{
+      display: none;
+    }
+
+    .boxLogin{
+        width: 40%;
+        height: 470px;
+    }
+
+    .containerLogin input[type=password]{
+        width: 85%;
+    }
+    .containerLogin input[type=text]{
+        width: 85%;
+    }    
+}
+
+  @media only screen and (min-width: 300px) and (max-width: 375px) {
+
+    .left, .right, .profile{
+      display: none;
+    }
+
+    .boxLogin{
+        width: 500%;
+        height: 500px;
+    }
+    .containerLogin input[type=password]{
+        width: 80%;
+    }
+
+    .containerLogin input[type=text]{
+        width: 80%;
+    }  
+
+}
+
+/* and (max-width: 375px) */
+
+
+

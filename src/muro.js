@@ -115,12 +115,9 @@ profileDiv.addEventListener('click', (event) => {
 
   if (event.target.nodeName === 'BUTTON' && event.target.textContent === 'Me gusta') {
     console.log('llamar a la función de me gusta')
-    likePost(like, userId, postId)
+    likePost = (starCount, idUser, idPost)
   }
-  firebase.database().ref('user-posts/' + userId + '/postId')
- .update({
-   starCount: like
- });
+  
 })
 
 
