@@ -66,9 +66,18 @@ const showPosts = (view) => {
       const postsList = result.val();
       for (let unitPost in postsList) {
 
-        let draw = `<div id='${unitPost}'>
+
+  //       let draw =
+  //         `<div id= card-contend  '${unitPost}'>
+  //       <div class= card-body>
+  // <h6>${postsList[unitPost].author}</h6>
+
+  // <textarea id= card-text '${unitPost}' cols= '100' rows= '6 '>${postsList[unitPost].body}</textarea>
+  //   <br>`
+
+        let draw = `<div id= card-contend '${unitPost}'class="card w-75" >
     <h6>${postsList[unitPost].author}</h6>
-    <textarea id='text-${unitPost}'>${postsList[unitPost].body}</textarea>
+    <textarea   id='text-${unitPost}'   cols= '60' rows= '6 '>${postsList[unitPost].body}</textarea>
       <br>`
 
         if (view === 'Muro') {
@@ -104,7 +113,7 @@ let starCount = 0;
 profileDiv.addEventListener('click', (event) => {
 
   console.log(profileDiv);
-   starCount++;
+  starCount++;
   // starCount = starCount + 1;
 
   const idPost = event.target.id
@@ -117,7 +126,7 @@ profileDiv.addEventListener('click', (event) => {
     console.log('llamar a la función de me gusta')
     likePost = (starCount, idUser, idPost)
   }
-  
+
 })
 
 
