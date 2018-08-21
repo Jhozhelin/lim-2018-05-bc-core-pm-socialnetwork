@@ -9,6 +9,10 @@ a:hover{
 }
 
 /* .nav-tabs{
+<<<<<<< HEAD
+=======
+
+>>>>>>> 579b7d4fa4dcd59285fd0424518fb7a3189bacc2
     color: #000 ;
     background-color: #67aa21;
     border-color: #dee2e6 #dee2e6 #fff;
@@ -388,4 +392,13 @@ btn {border-radius: 8px;}
         width: 80%;
     }  
 
+<<<<<<< HEAD
 }
+=======
+}
+
+/* and (max-width: 375px) */
+
+
+
+>>>>>>> 579b7d4fa4dcd59285fd0424518fb7a3189bacc2
