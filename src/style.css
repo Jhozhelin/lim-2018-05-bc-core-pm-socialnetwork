@@ -389,3 +389,9 @@ btn {border-radius: 8px;}
     }  
 
 }
+
+textarea{
+    width: 65%;
+    height: 180px;
+    padding: 1em;
+}
