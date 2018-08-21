@@ -3,6 +3,32 @@
     padding: 0px;
     font-family: 'Roboto', sans-serif;
 }
+
+a:hover{
+    color: #67aa21
+}
+
+/* .nav-tabs{
+
+    color: #000 ;
+    background-color: #67aa21;
+    border-color: #dee2e6 #dee2e6 #fff;
+    margin: 2px 4px;
+    color: #67aa21;
+} */
+
+
+
+.tab-content>.active {
+    width: 100%;
+}
+
+#card-contend {
+    height: 35%;
+    /* width: 5%; */
+    box-shadow: 4px 4px 4px #E6E6E6;
+}
+
 .containerLogin{ 
     background-image: url("img/Beach.jpg");
     background-position: center;
@@ -195,49 +221,8 @@
     resize: none;
 }
 
-.btnEdit{
-    width: 80px;
-    height: 35px;
-    background-color: #000000;
-    color: #ffffff;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-}
-
-.btnRemove{
-    width: 80px;
-    height: 35px;
-    background-color: #000000;
-    color: #ffffff;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-}
-
 
 #buttonPost{
-    width: 80px;
-    height: 35px;
-    background-color: #000000;
-    color: #ffffff;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-}
-
-
-.btnEdit{
-    width: 80px;
-    height: 35px;
-    background-color: #000000;
-    color: #ffffff;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-}
-
-.btnRemove{
     width: 80px;
     height: 35px;
     background-color: #000000;
@@ -269,12 +254,144 @@ footer{
 
 #card-text{
     width: 50%;
-
+    padding: 1.25rem;
 }
 
+/* boton de publicar */
 #btnSave{
-    border-color:#58990d ;
-    background-color: #67aa21;
+    border-color: #4CAF50 ;
+    background-color: #4CAF50;
     color: #fff;
 
 }
+
+/* Estilo al los botones Me gusnta, Editar, eliminar */
+button {
+    background-color: #4CAF50; 
+    border: none;
+    color: white;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+
+btn {border-radius: 8px;}
+
+.advertising{
+    display: inline-block;
+    border-radius: 5px;
+    background-color: #E5E3E3;
+    text-align: center;
+    margin: 10px;
+    padding: 5px;
+  }
+
+.right{
+    width: 25%;
+  }
+
+  @media only screen and (max-width: 1440px) {
+    .boxLogin{
+        width: 25%;
+        height: 470px;
+    } 
+
+    .containerLogin input[type=password]{
+        width: 90%;
+    }
+    .containerLogin input[type=text]{
+        width: 90%;
+    }
+
+  }
+
+
+  @media only screen and (max-width: 1024px) {
+    .boxLogin{
+        width: 30%;
+        height: 470px;
+    }  
+
+    .containerLogin input[type=password]{
+        width: 90%px;
+    }
+    .containerLogin input[type=text]{
+        width: 90%px;
+    }
+}
+
+
+    @media only screen and (max-width: 1000px)  and (max-width: 776px)  {
+    .boxLogin{
+        width: 50%;
+        height: 470px;
+    }  
+}
+
+
+  @media only screen and (max-width: 768px) {
+    .right{
+      display: none;
+    }
+
+    .boxLogin{
+        width: 40%;
+        height: 470px;
+    }
+
+    .containerLogin input[type=password]{
+        width: 85%;
+    }
+    .containerLogin input[type=text]{
+        width: 85%;
+    }    
+}
+
+
+@media only screen and (max-width: 425px) {
+    .right{
+      display: none;
+    }
+
+    .boxLogin{
+        width: 40%;
+        height: 470px;
+    }
+
+    .containerLogin input[type=password]{
+        width: 85%;
+    }
+    .containerLogin input[type=text]{
+        width: 85%;
+    }    
+}
+
+  @media only screen and (min-width: 300px) and (max-width: 375px) {
+
+    .left, .right, .profile{
+      display: none;
+    }
+
+    .boxLogin{
+        width: 500%;
+        height: 500px;
+    }
+    .containerLogin input[type=password]{
+        width: 80%;
+    }
+
+    .containerLogin input[type=text]{
+        width: 80%;
+    }  
+
+}
+
+/* and (max-width: 375px) */
+
+
+

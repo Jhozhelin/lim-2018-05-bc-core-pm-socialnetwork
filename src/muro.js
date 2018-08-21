@@ -6,7 +6,9 @@ const posts = document.getElementById('divPosts'),
   btnSave = document.getElementById('btnSave'),
   btnPublic = document.querySelector('#btn-public'),
   btnPrivate = document.querySelector('#btn-private'),
-  nameUser = document.querySelector('.card-title')
+  nameUser = document.querySelector('.card-title'),
+  profileDiv = document.getElementById('profile')
+
 
 let postData = {
   uid: null,
@@ -16,103 +18,206 @@ let postData = {
   starCount: 0
 };
 
+
+
 window.onload = () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      // console.log(user);
       postData.uid = user.uid;
       postData.author = user.displayName;
       nameUser.textContent = postData.author
-      // console.log(postData);
-      // console.log('El usuario esta logueado');
+
+
 
     } else {
       location.href = 'index.html'
-      // console.log('No logueado.');
     }
   });
 
-  getPost()
-    .then(result => {
-      const postsList = result.val();
-      // console.log(postsList);
 
-      for (let unitPost in postsList) {
-        console.log(unitPost);
-        
-        console.log(postsList[unitPost]);
-        
-        let draw = `
-        <h6>${postsList[unitPost].author}</h6>
-        <textarea>${postsList[unitPost].body}</textarea>
-          <br>
-          <button id='${unitPost}'>Editar</button>
-          <button id='${unitPost}'>Eliminar</button>`
-        // console.log(posts);
-        posts.innerHTML += draw;
-      }
-    });
-    btnPublic.checked = true;
+  //showPosts('Muro')
+  //showPosts('Perfil')
+
+
+
 
 }
 
+//mostrar la información en el Muro
+const contHome = document.getElementById('home-tab')
+contHome.addEventListener('click', () => {
+  showPosts('Muro')
+
+})
+
+
+//mostrar la información en el Perfil 
+const contProfile = document.getElementById('profile-tab')
+contProfile.addEventListener('click', () => {
+  showPosts('Perfil')
+
+})
+
+//tomamos la función de los posts para mostrar la imformación de Muro y Perfil
+const showPosts = (view) => {
+  getPost()
+    .then(result => {
+      //const postsList = unitPost
+      const postsList = result.val();
+      for (let unitPost in postsList) {
+
+
+  //       let draw =
+  //         `<div id= card-contend  '${unitPost}'>
+  //       <div class= card-body>
+  // <h6>${postsList[unitPost].author}</h6>
+
+  // <textarea id= card-text '${unitPost}' cols= '100' rows= '6 '>${postsList[unitPost].body}</textarea>
+  //   <br>`
+
+        let draw = `<div id= card-contend '${unitPost}'class="card w-75" >
+    <h6>${postsList[unitPost].author}</h6>
+    <textarea   id='text-${unitPost}'   cols= '60' rows= '6 '>${postsList[unitPost].body}</textarea>
+      <br>`
+
+        if (view === 'Muro') {
+          draw += `<button id=${unitPost}>Me gusta</button>`
+          console.log('hola');
+
+          profileDiv.innerHTML += draw;
+        } else if (view === 'Perfil') {
+          draw += `<button id=${unitPost}>Editar</button>
+            <button id=${unitPost}>Eliminar</button>`
+
+          posts.innerHTML += draw;
+
+        }
+
+      }
+
+    });
+
+}
+btnPublic.checked = true;
+
+// const hola = (unitPost) => {
+//   const btnEliminar = document.getElementById('eliminar' + unitPost);
+//         btnEliminar.addEventListener('click', () => {
+//           console.log('hice click a eliminar')
+
+//         })
+// }
+let starCount = 0;
+
+//profileDiv escuchando el evento para llama a la función like
+profileDiv.addEventListener('click', (event) => {
+
+  console.log(profileDiv);
+  starCount++;
+  // starCount = starCount + 1;
+
+  const idPost = event.target.id
+  console.log(idPost);
+
+  const idUser = postData.uid
+  console.log(idUser);
+
+  if (event.target.nodeName === 'BUTTON' && event.target.textContent === 'Me gusta') {
+    console.log('llamar a la función de me gusta')
+    likePost = (starCount, idUser, idPost)
+  }
+
+})
+
+
+
+//divPost escuchando el evento para llamr a las funciones eliminar y editar
+posts.addEventListener('click', (event) => {
+  console.log(posts);
+
+  //console.log(document.getElementById(`text-${event.target.id}`).textContent);
+
+  const idPost = event.target.id
+  console.log(idPost);
+
+  const idUser = postData.uid
+  console.log(idUser);
+
+  if (event.target.nodeName === 'BUTTON' && event.target.textContent === 'Editar') {
+    console.log('llamar a la función de editar posts')
+    //console.log(postId)
+    const textPost = document.getElementById(`text-${event.target.id}`).value
+    //console.log(postData.uid );
+    const idUser = postData.uid
+    console.log(idUser);
+
+
+    editPost(idUser, textPost, idPost)
+    alert('Se edito correctamente')
+    reload_page()
+
+
+  } else if (event.target.nodeName === 'BUTTON' && event.target.textContent === 'Eliminar') {
+    console.log('llamar a la función de eliminar posts');
+
+    deletePost(idUser, idPost)
+    alert('Se elimino correctamente')
+    reload_page()
+
+  }
+})
+
+
+
+// const btnEdit = document.getElementById(`btn-edit-${unitPost}`)
+
+// btnEdit.addEventListener('click', () => {
+
+
+//   // let newUpdate = document.getElementById(newPost);
+//   let textoNuevo = document.getElementById(`cuerpoPost-${unitPost}`).value
+//   const nuevoPost = {
+//     body: textoNuevo,
+//   };
+
+//   const updatesUser = {};
+//   const updatesPost = {};
+
+//   updatesUser['/user-posts/' + userId + '/' + newPost] = nuevoPost;
+//   updatesPost['/posts/' + newPost] = nuevoPost;
+
+//   firebase.database().ref().update(updatesUser);
+//   firebase.database().ref().update(updatesPost);
+
+// });
+
+//*********función de publicar//**********
+
 btnSave.addEventListener('click', () => {
-  console.log('funciono')
-  const userId = firebase.auth().currentUser.uid;
-  // console.log(post.value)
+  const userId = firebase.auth().currentUser.uid
   postData.body = post.value
-  console.log(postData.body)
-  const newPost = writeNewPost(postData);
-  console.log(userId);
+  const newPost = writeNewPost(postData)
 
-
-  const btnUpdate = document.createElement("input");
-  btnUpdate.setAttribute("value", "Update");
-  btnUpdate.setAttribute("type", "button");
-  const btnDelete = document.createElement("input");
-  btnDelete.setAttribute("value", "Delete");
-  btnDelete.setAttribute("type", "button");
-
-  reload_page();
+  //reload_page();
   //const contPost = document.createElement('div');
   //const textPost = document.createElement('textarea')
   //textPost.setAttribute("id", newPost);
 
   //textPost.innerHTML = post.value;
 
-  btnDelete.addEventListener('click', () => {
+  // btnDelete.addEventListener('click', () => {
+  //   // deletePost(postId, uid) 
 
-    firebase.database().ref().child('/user-posts/' + userId + '/' + newPost).remove();
-    firebase.database().ref().child('posts/' + newPost).remove();
 
-    // while (contPost.firstChild) contPost.removeChild(contPost.firstChild);
 
-    alert('Eliminar posts!');
-    reload_page();
 
-  });
+  //   // while (contPost.firstChild) contPost.removeChild(contPost.firstChild);
 
-  btnUpdate.addEventListener('click', () => {
-    const newUpdate = document.getElementById(newPost);
-    const nuevoPost = {
-      body: newUpdate.value,
-    };
+  //   // alert('Eliminar posts!');
+  reload_page();
 
-    const updatesUser = {};
-    const updatesPost = {};
+  // });
 
-    updatesUser['/user-posts/' + userId + '/' + newPost] = nuevoPost;
-    updatesPost['/posts/' + newPost] = nuevoPost;
-
-    firebase.database().ref().update(updatesUser);
-    firebase.database().ref().update(updatesPost);
-
-  });
-  /* 
-    contPost.appendChild(textPost);
-    contPost.appendChild(btnUpdate);
-    contPost.appendChild(btnDelete);
-    posts.appendChild(contPost); */
 
 })
 
@@ -136,21 +241,3 @@ btnPrivate.addEventListener('click', () => {
   postData.state = 'private'
 
 })
-
-/* Hacemos que el div escuche el evento */
-posts.addEventListener('click', (e) => {
-
-  /*<h6>${postsList[unitPost].author}</h6>
-  <textarea class = 'textBody'>${postsList[unitPost].body}</textarea>
-    <br>
-    <button id='${unitPost}'>Editar</button>
-    <button id='${unitPost}'>Eliminar</button>`*/
-    
- 
-console.log(e.target.textContent)
-if(e.target.nodeName  === 'BUTTON' && e.target.textContent === 'Editar'){
-  console.log(postData)
-  // editPost(e.target.id,postData)
-} 
-
-} )
