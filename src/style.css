@@ -458,8 +458,14 @@ button:hover {
 }
 
 textarea{
+<<<<<<< HEAD
     width: 80%;
     height: 150px;
     padding: 1em;
     margin: 5px;
+=======
+    width: 65%;
+    height: 180px;
+    padding: 1em;
+>>>>>>> 8e6dd4a6e6ef3b9ac7a4d1f945ae0305cfc3d3a9
 }
