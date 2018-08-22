@@ -68,7 +68,7 @@ const showPosts = (view) => {
 
 
         let draw = `<div id= card-contend '${unitPost}'class="card w-75" >
-    <h6>${postsList[unitPost].author}</h6>
+    <h4>${postsList[unitPost].author}</h4>
     <textarea   id='text-${unitPost}'   cols= '60' rows= '6 '>${postsList[unitPost].body}</textarea>
       <br>`
 
