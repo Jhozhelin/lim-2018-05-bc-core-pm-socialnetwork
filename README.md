@@ -69,7 +69,7 @@ Con Gusto:
 https://jhozhelin.github.io/lim-2018-05-bc-core-pm-socialnetwork/src/
 
 
-![](https://fotos.subefotos.com/c5c5fd6d1de845982862a7af3c38a6a9o.jpg)
+![](https://fotos.subefotos.com/780cfcf4e384d538672fb776ee0ba62ao.jpg)
 
 ## ENCUESTA
 ![](https://fotos.subefotos.com/599ec90c962179ece469c5258bf9111bo.jpg)
@@ -170,9 +170,17 @@ Incluyendo novedades en la aplicación cada cierto tiempo. Esto, actualizando nu
 
 ## *Prototipo:*
 
-![](https://fotos.subefotos.com/f1d491e3c4c723a3e757ec471e563631o.jpg)
+* Pantalla de iniciar sesión.
+![](https://fotos.subefotos.com/fea4ef68f14914f8911a3f0847f43f78o.jpg)
 
-![](https://fotos.subefotos.com/7b9d88cf099f331119b6c4814e7783bao.jpg)
+* Pantalla de Crear cuenta.
+![]https://fotos.subefotos.com/6a230543805494f91af9cb81ba26c4c6o.jpg)
+
+* Pantalla de perfil.
+![](https://fotos.subefotos.com/7580479aec502c081e95d27648db9336o.jpg)
+
+* Pantalla de muro.
+![](https://fotos.subefotos.com/52d8eafee87a9a29be93cf306e57fc37o.jpg)
 
 <!-- Debes definir cuál será el flujo que seguirá el usuario dentro de tu producto y
 con eso deberás diseñar la Interfaz de Usuario (UI - por sus siglas en inglés) de

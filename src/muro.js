@@ -7,7 +7,8 @@ const posts = document.getElementById('divPosts'),
   btnPublic = document.querySelector('#btn-public'),
   btnPrivate = document.querySelector('#btn-private'),
   nameUser = document.querySelector('.card-title'),
-  profileDiv = document.getElementById('profile')
+  profileDiv = document.getElementById('profile'),
+  reloadPage = document.getElementsByClassName('reloadPage')
 
 
 let postData = {
@@ -44,7 +45,7 @@ window.onload = () => {
 }
 
 //mostrar la información en el Muro
-const contHome = document.getElementById('home-tab')
+const contHome = document.getElementById('wall-tab')
 contHome.addEventListener('click', () => {
   showPosts('Muro')
 
@@ -60,10 +61,15 @@ contProfile.addEventListener('click', () => {
 
 //tomamos la función de los posts para mostrar la imformación de Muro y Perfil
 const showPosts = (view) => {
+  // reloadPage.style.display = 'block'
   getPost()
     .then(result => {
+      // reloadPage.style.display = 'none'
       //const postsList = unitPost
       const postsList = result.val()
+      profileDiv.innerHTML = ''
+      posts.innerHTML = ''
+
       for (let unitPost in postsList) {
 
 
@@ -111,7 +117,7 @@ profileDiv.addEventListener('click', (event) => {
     reload_page()
   }
 
- 
+
 })
 
 
@@ -159,8 +165,8 @@ btnSave.addEventListener('click', () => {
   const userId = firebase.auth().currentUser.uid
   postData.body = post.value
   const newPost = writeNewPost(postData)
-  
-  reload_page() 
+
+  reload_page()
 
 
 })

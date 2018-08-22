@@ -41,8 +41,14 @@ window.signIn = (email, password) => {
       console.log(error)
 
       // Handle Errors here.
-      var errorCode = error.code
-      var errorMessage = error.message
+      let errorCode = error.code
+      if (errorCode === 'auth/wrong-pass') {
+        alert('La contraseña es incorrecta')
+      }
+      else {
+        alert('Usuario y contraseña incorectos')
+      }
+      // const errorMessage = error.message
       // ...
     })
 }
