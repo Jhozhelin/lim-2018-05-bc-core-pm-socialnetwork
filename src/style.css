@@ -327,8 +327,8 @@ footer{
 #card-contend{
     margin-left: 50px;
     margin-top: 50px;
-    width: 80%;
-    margin: 50px 250px;
+    width: 60%;
+    margin: 50px 80px;
 }
 
 #card-text{
@@ -382,7 +382,11 @@ button:hover {
   }
 
 .right{
+    display: block;
     width: 25%;
+    margin-left: 90%;
+    margin-top: -40%;
+
   }
 
   @media only screen and (max-width: 1440px) {

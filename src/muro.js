@@ -3,7 +3,7 @@ const posts = document.getElementById('divPosts'),
   //Acá se almacenará el valor del boby del post
   post = document.getElementById('card-text'),
   btnlogout = document.getElementById('logout'),
-  btnSave = document.getElementById('btnSave'),
+  btnToPost = document.getElementById('btnSave'),
   btnPublic = document.querySelector('#btn-public'),
   btnPrivate = document.querySelector('#btn-private'),
   nameUser = document.querySelector('.card-title'),
@@ -161,7 +161,7 @@ posts.addEventListener('click', (event) => {
 
 //*********función de publicar//**********
 
-btnSave.addEventListener('click', () => {
+btnToPost.addEventListener('click', () => {
   const userId = firebase.auth().currentUser.uid
   postData.body = post.value
   const newPost = writeNewPost(postData)
@@ -180,13 +180,14 @@ function reload_page() {
   window.location.reload()
 }
 
+//estado de publico
 
 btnPublic.addEventListener('click', () => {
   postData.state = 'public'
 
 })
 
-
+//estado de privado
 btnPrivate.addEventListener('click', () => {
   postData.state = 'private'
 
