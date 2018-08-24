@@ -371,7 +371,10 @@ button:hover {
 }
 
 
+.publicidad{
+    width: 100%;
 
+}
 .advertising{
     display: inline-block;
     border-radius: 5px;
@@ -383,7 +386,7 @@ button:hover {
 
 .right{
     display: block;
-    width: 25%;
+    width: 30%;
     margin-left: 90%;
     margin-top: -40%;
 
