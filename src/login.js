@@ -30,9 +30,10 @@
 
  /*Registro de nuevos usuarios*/
  btnRegister.addEventListener('click', () => {
+  const userName = document.getElementById('userName').value
    const emailRegister = document.getElementById('email').value;
    const createPassword = document.getElementById('createPassword').value;
-   register(emailRegister, createPassword)
+   register(userName, emailRegister, createPassword)
    console.log('usuario registrado')
  })
 

@@ -26,9 +26,14 @@ window.onload = () => {
     if (user) {
       postData.uid = user.uid
       postData.author = user.displayName
-      nameUser.textContent = postData.author
 
+      console.log(user);
 
+      firebase.database().ref(`users/${user.uid}/`).once('value')
+        .then(result => {
+          nameUser.textContent = result.val().username
+
+        })
 
     } else {
       location.href = 'index.html'
@@ -62,45 +67,69 @@ contProfile.addEventListener('click', () => {
 //tomamos la función de los posts para mostrar la imformación de Muro y Perfil
 const showPosts = (view) => {
   // reloadPage.style.display = 'block'
-  getPost()
-    .then(result => {
-      // reloadPage.style.display = 'none'
-      //const postsList = unitPost
-      const postsList = result.val()
-      profileDiv.innerHTML = ''
-      posts.innerHTML = ''
+  if (view === 'Muro') {
+    profileDiv.innerHTML = ''
+    posts.innerHTML = ''
 
-      for (let unitPost in postsList) {
+    firebase.database().ref("posts").orderByChild("state")
+      .equalTo('public').on("child_added", function (snapshot) {
+        // console.log(snapshot.key);
+        //   getPost()
+        //     .then(result => {
+        //       // reloadPage.style.display = 'none'
+        //       // const postsList = unitPost
+        console.log(snapshot.val());
+
+        const postsList = snapshot.val()
+        //console.log(postsList);
 
 
-        let draw = `<div id= card-contend '${unitPost}'class="card w-75" >
+
+        let draw = `<div id= card-contend '${postsList.id}'class="card w-75" >
+    <h4>${postsList.author}</h4>
+    <textarea   id='text-${postsList.id}'   cols= '60' rows= '6 '>${postsList.body}</textarea>
+      <br>`
+
+
+        draw += `<button id=${postsList.id} value='Me gusta'>Me gusta ${postsList.starCount}</button>`
+
+        profileDiv.innerHTML += draw
+
+      })
+  }
+  else if (view === 'Perfil') {
+
+
+
+    firebase.database().ref(`user-posts/${postData.uid}/`).once('value')
+      .then(result => {
+        // reloadPage.style.display = 'none'
+        // const postsList = unitPost
+        const postsList = result.val()
+        //console.log(postsList);
+
+        profileDiv.innerHTML = ''
+        posts.innerHTML = ''
+
+        for (let unitPost in postsList) {
+
+
+          let draw = `<div id= card-contend '${unitPost}'class="card w-75" >
     <h4>${postsList[unitPost].author}</h4>
     <textarea   id='text-${unitPost}'   cols= '60' rows= '6 '>${postsList[unitPost].body}</textarea>
       <br>`
 
-        if (view === 'Muro') {
-          draw += `<button id=${unitPost} value='Me gusta'>Me gusta ${postsList[unitPost].starCount}</button>`
-          console.log('hola')
 
-          profileDiv.innerHTML += draw
-        }
-
-        else if (view === 'Perfil') {
-          draw += `<button id=${unitPost}>Editar</button>
-            <button id=${unitPost}>Eliminar</button>`
+          draw += `<button id=${unitPost} value = 'Edit'>Editar</button>
+              <button id=${unitPost} value='Save'>Guardar</button>
+      <button id=${unitPost}>Eliminar</button>`
 
           posts.innerHTML += draw
-
         }
-
-      }
-
-    })
-
+      })
+  }
 }
 btnPublic.checked = true
-
-
 
 //profileDiv escuchando el evento para llama a la función like
 profileDiv.addEventListener('click', (event) => {

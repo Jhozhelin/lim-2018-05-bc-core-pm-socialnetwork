@@ -371,11 +371,11 @@ button:hover {
 }
 
 
-.publicidad{
+/* .advertising{
     width: 100%;
 
 }
-.advertising{
+.advertisingSpace{
     display: inline-block;
     border-radius: 5px;
     background-color: #E5E3E3;
@@ -384,13 +384,13 @@ button:hover {
     padding: 5px;
   }
 
-.right{
+.adSpase{
     display: block;
     width: 30%;
     margin-left: 90%;
     margin-top: -40%;
 
-  }
+  } */
 
   @media only screen and (max-width: 1440px) {
     .boxLogin{

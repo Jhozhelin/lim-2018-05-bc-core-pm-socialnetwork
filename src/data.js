@@ -11,13 +11,13 @@ window.writeUserData = (userId, name, email, imageUrl) => {
   })
 }
 //**********Función para registrar usuario*************
-window.register = (email, password) => {
+window.register = (userName, email, password) => {
   firebase
     .auth()
     .createUserWithEmailAndPassword(email, password)
     .then(result => {
       console.log(result)
-      writeUserData(result.user.uid, null, result.user.email, null)
+      writeUserData(result.user.uid, userName, result.user.email, null)
     })
     .catch(function (error) {
       // Handle Errors here.
