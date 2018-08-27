@@ -4,7 +4,11 @@
     font-family: 'Roboto', sans-serif;
 }
 
-
+span{
+    font-size: 80%;
+    margin: 15px;
+    color: #d34836;
+}
 
 #profile-tab {
     background-color: #549c0d; 
@@ -143,7 +147,7 @@
 
 .title{
     color: #000000;
-    margin-top: 30px;
+    margin-top: 10px;
     margin-bottom: 20px;
     
 }
@@ -161,26 +165,26 @@
 
 .containerLogin input[type=text]{
     color: #495057;
-    width: 300px;
+    width: 100%;
     height: 35px;
     border: 1px solid #ced4da;
     border-radius: 5px;
-    margin-top: 12px;
+    margin: 5px;
     outline-color: #58C0B5;
     border-radius: 5px;
 }
 
 .containerLogin input[type=password]{
-    width: 300px;
+    width: 100%;
     height: 35px;
     border: 1px solid #ced4da;
     border-radius: 5px;
-    margin-top: 15px;
+    margin: 5px;
     outline-color: #58C0B5;
 }
 
 .containerLogin input[type=button]{
-    width: 140px;
+    width: 50%;
     height: 35px;
     background-color: #000000;
     color: #ffffff;
@@ -188,8 +192,12 @@
     font-weight: bolder;
     border: none;
     border-radius: 5px;
-    margin-top: 15px;
+    margin-top: 18px;
+    margin-left: -2px;
 }
+
+
+
 
 .other{
     color: #999;
@@ -251,7 +259,7 @@
 }
 
 .titletwo{
-    margin-top: 40px;
+    margin-top: 10px;
 }
 
 /*Post*/
@@ -341,7 +349,7 @@ footer{
     background-color: #549c0d;
     color: #fff;
     font-size: 20px;
-    width: 23%;
+    width: 28%;
     height: 50px;
 
 }
@@ -364,6 +372,7 @@ button {
     font-size: 20px;
     width: 18%;
     margin: 3px;
+    border: none;
     }
 
 button:hover {

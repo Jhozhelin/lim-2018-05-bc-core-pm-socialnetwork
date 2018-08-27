@@ -24,9 +24,13 @@
         <img src="img/logo-CG.png">
       </div>
       <h2 class="title">Iniciar Sesión</h2>
-      <input type="text" placeholder="Correo electrónico" id="loginEmail">
 
-      <input type="password" placeholder="Contraseña" id="loginPassword" pattern=".{6}">
+      <input type="text" placeholder="Correo electrónico" id="loginEmail" >
+      <span class="innerText" id="loginAlert"></span>
+
+      <input type="password" placeholder="Contraseña" id="loginPassword" >
+      <span class="innerText" id="passwordAlert"></span>
+
 
       <input type="button" value="Iniciar Sesión" id="btnLogin">
 
@@ -52,13 +56,13 @@
       <h2 class="titletwo">Crear Cuenta</h2>
 
       <input type="text" placeholder="Nombre completo" id="userName">
+
       <input type="text" placeholder="Correo electrónico" id="email">
+      <span class="innerText" id="signInAlert"></span>      
 
-      <input type="password" placeholder="Contraseña" id="createPassword" pattern=".{6}">
-
-      <!--<input type="password" placeholder="Confirmar Contraseña" id="confimPassword">
-            <br>
-            <br>-->
+      <input type="password" placeholder="Contraseña" id="createPassword" >
+      <span class="innerText" id="signInPassword"></span>
+      
       <input type="button" value="Registrarse" id="btnRegister">
 
       <div class="boxIngresarLogin">
@@ -74,7 +78,7 @@
   <!-- Enlace con mi firebase -->
   <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js" type="text/javascript">
   </script>
-  
+
   <!-- Enlace con mis documentos de js -->
 
   <script src="config.js" type="text/javascript"></script>

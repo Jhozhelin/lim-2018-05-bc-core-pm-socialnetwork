@@ -122,7 +122,7 @@ const showPosts = (view) => {
 
           draw += `<button id=${unitPost} value = 'Edit'>Editar</button>
               <button id=${unitPost} value='Save'>Guardar</button>
-      <button id=${unitPost}>Eliminar</button>`
+      <button id=${unitPost}>Eliminar</button> </div>`
 
           posts.innerHTML += draw
         }

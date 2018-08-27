@@ -4,47 +4,14 @@ _Proyecto diseñado y elaborado por Jhoselin Mancilla para el  bootcamp de Labor
 ## DEMO
 https://jhozhelin.github.io/lim-2018-05-bc-core-pm-socialnetwork/src
 
-## Preámbulo
 
-Instagram, Snapchat, Twitter, Facebook, Twitch, Linkedin, etc. Las redes
-sociales han invadido nuestras vidas. Las amamos u odiamos, y muchxs no podemos
-vivir sin ellas.
-
-Hay redes sociales de todo tipo y para todo tipo de intereses. Por ejemplo,
-en una ronda de financiamiento con inversionistas, se presentó una red social
-para químicos en la que los usuarios podían publicar artículos sobre sus
-investigaciones, comentar en los artículos de sus colegas, y filtrar artículos
-de acuerdo a determinadas etiquetas o su popularidad, lo más reciente, o lo
-más comentado.
-
-## Introducción
-
-Una emprendedora nos ha encargado crear una red social. No nos da mucho detalle
-sobre qué tipo de red social quiere, sólo nos dice que creemos la mejor que
-podamos, y que luego la convenzamos de lanzarla al mercado. Nos da ciertos temas
-en los que le gustaría invertir:
-
-* Alimentación
-* Feminismo
-* Educación
-* Salud
-* Energías Renovables
-
-## Objetivos
-
-El objetivo principal de aprendizaje de este proyecto es construir un sitio web
-[_responsive_](https://github.com/Laboratoria/curricula-js/tree/master/topics/css/02-responsive)
-con más de una vista (página), y en el que podamos leer y escribir datos.
-
-Algunos objetivos específicos:
-
-* Entender las necesidades de los usuarios para los que crearás el producto y que ayudarás a resolver.
-* Poner en juego tu creatividad para generar ideas que lleven a una solución original y valiosa del problema.
-* Cuentas con el apoyo de tus compañeras, debes trabajar en equipo buscando _feedback_ constante.
+![id="imgLogo"](https://fotos.subefotos.com/5eef9d32978932ba1dd1e2d9fd6e8f2fo.png)
 
 
 ## Implementación
-<!-- ### Front end -->
+
+### Front end 
+
 ### UX
 
 ![](https://fotos.subefotos.com/26973a6437a96f38dd29f454b50b7242o.jpg)
@@ -95,19 +62,10 @@ Desde el punto de vista de UX, deberás:
 * Hacer sesiones de testing con el producto en HTML. -->
 
 ### Ágil
-<!-- Vamos a dar un paso importante para seguir aprendiendo de Ágil. Te será de mucha
-ayuda para ir avanzando tu proyecto de forma incremental y no en cascada.
 
-Esta vez te pedimos que los ítems de tu Backlog de Producto estén escritos
-como [Historias de Usuario](http://jmbeas.es/guias/historias-de-usuario/).
-Esta es una técnica muy simple que te ayudará a: -->
 
-* Organizar el trabajo en función del valor que le aporta al usuario.
-* Poder publicar partes completas y utilizables del producto al final del
-  sprint.
-* Que el equipo trabaje de manera multidisciplinaria de manera natural.
 
-RECURSO TRELLO
+##RECURSO TRELLO
 
 ![](https://fotos.subefotos.com/e4f77e219cca3e5a12116e0eaec2ede0o.jpg)
 
@@ -116,12 +74,7 @@ RECURSO TRELLO
 ### Habilidades Blandas
 
 
-#### 1) Definición del producto
-
-
-
-<!-- En el `README.md` debes colocar cómo conociste el mercado de las redes sociales, cómo descubriste las necesidades de los usuarios, y cómo llegaste a la definición final de tu producto. Si tienes fotos de entrevistas, cuestionarios y/o sketches
-(bocetos) compártelos. Es importante que detalles: -->
+#### Definición del producto
 
 * Cuáles son los elementos básicos que tiene una red social.
   * Elemento Sociológico
@@ -137,27 +90,41 @@ RECURSO TRELLO
   * Estilo de vida: sofisticado
   
 * Cómo descubriste las necesidades de los usuarios.
-  Descubrimos sus necesidades mediante encuetas globales y luego con entrevistas centradas en nuestro publico objetivo.
+En primera instancia, identificamos el objetivo de nuestra investigación. Para ello, segmentamos a los usuarios  mediante encuestas  sentradas en nuestro publico objetivo y brainstorning. Nos dimos cuenta que solo el 26% de limeños considera que su alimentación es saludable y no encontramos ningun medio digital  que los conecte entre ellos y que otras personas se puedan sumar a ser parte del grupo.
 
+Realizamos algunas hipótesis y con esa información elaboramos una guía de entrevista en profundidad que aplicamos poco después. La encuestas aplicada nos ayudaron para darle solidez, a nivel cuantitativo, y obtener datos concretos.
+
+Para concluir, recopilamos la información para elaborar al user persona.
+
+ 
 
 * Qué problema resuelve el producto para estos usuarios.
 
-  Los usuarios no tienen un medio espesifico por el cual puedan manifestar inquetudes y conpartir informacion.
-
-  Los usuarios no encuentras muchas fuentes de informacion veridicas. 
+Con Gusto, es una comunidad de personas interezadas por la alimentación saludable,enla cual comparten información de eventos, ubicación de restaurantes, articulosde especialistas y reuniones.
+   
 
 * Cuáles son los objetivos de estos usuarios en relación con el producto.
 
-  Relacionarser con divercidad de personas como (profecionales) que puedan contribuir de  manera eficiente, correcta y conreta con sus inquetudes. 
+  * Encontrar información veridica, resetas y tips.
+  * Prevenir enfermedades. 
+  * Mejorar sus hábitos de alimentación.
+  * Encontrar novedades y noticias sobre la alimentación saludable.
 
 * Cuáles son las principales funcionalidades del producto y cuál es su prioridad.
   Las principales funncionalidades del productos son: 
-  El usuario puedo crear su cuenta y registrarse.
-  El usuario puede loguearse con facebook y google.
-  El usuario puede realizar una publicación.
 
+  * El usuario puede registrarce o ingresar a la comunidad mediante su cuenta de Facebook o de google.
+  * El usuario puede crear un posts.
+  * El usuario puede elegir su estado entre publico o privado.
+  * El usuario puede editar sus posts creados.
+  * El usuario puede eliminar sus posts creado.
+  * Que otros  usuarios registrados puedan dar me gusta a los posts que ellos le elijen.   
+  
+  
 * Cómo verificaste que el producto les está resolviendo sus problemas.
   Realizando tests de usabilidad y realizando entrevistas a los usuarios 
+
+  Realizando encuestas mensuales para conocer la opinión de los usuarios teniendo en cuenta el  feedback constante del usuario y la esperiencia que tiene cada vez que ingresa a la comunidad.
 
 * Cómo te asegurarás que estos usuarios usen este producto.
 Incluyendo novedades en la aplicación cada cierto tiempo. Esto, actualizando nuestro benchmark.
@@ -174,7 +141,7 @@ Incluyendo novedades en la aplicación cada cierto tiempo. Esto, actualizando nu
 ![](https://fotos.subefotos.com/fea4ef68f14914f8911a3f0847f43f78o.jpg)
 
 * Pantalla de Crear cuenta.
-![]https://fotos.subefotos.com/6a230543805494f91af9cb81ba26c4c6o.jpg)
+![](https://fotos.subefotos.com/6a230543805494f91af9cb81ba26c4c6o.jpg)
 
 * Pantalla de perfil.
 ![](https://fotos.subefotos.com/7580479aec502c081e95d27648db9336o.jpg)
@@ -182,25 +149,65 @@ Incluyendo novedades en la aplicación cada cierto tiempo. Esto, actualizando nu
 * Pantalla de muro.
 ![](https://fotos.subefotos.com/52d8eafee87a9a29be93cf306e57fc37o.jpg)
 
-<!-- Debes definir cuál será el flujo que seguirá el usuario dentro de tu producto y
-con eso deberás diseñar la Interfaz de Usuario (UI - por sus siglas en inglés) de
-esta red social que siga este flujo. Para esto debes utilizar la herramienta de
-diseño visual de tu preferencia. Nosotros te recomendamos [Figma](https://www.figma.com/) dado que es una
-herramienta que funciona en el navegador y puedes crear una cuenta gratis. Sin
-embargo, eres libre de utilizar otros editores gráficos como Adobe XD, Illustrator,
-Photoshop, PowerPoint, Keynote, etc.
+## Técnicas UX
+ * investigación para la búsqueda de información
 
-Este diseño debe representar la solución que se implementará finalmente en
-código. 
+  Brainstorming
+  Benchmark
 
-Tu diseño debe seguir los fundamentos de visual design, como: contraste,
-alineación, jerarquía, entre otros. Tip: revisa el contenido de UX de la unidad
-de visual design. -->
+* Para el descubrimiento del perfil y necesidades del usuario
 
-#### 3) Implementación de la Interfaz de Usuario
+  Entrevistas en profundidad
+  Para el diseño.
 
+* Para la implementación del diseño visual
+  Bosquejo
+  Sketch
+  Prototipado
+
+* Para el diseño
+  test con usuario
+  
+
+* Prototipado en alta fidelidad:
+  Marvel app
+  ![](https://fotos.subefotos.com/7580479aec502c081e95d27648db9336o.jpg)
+
+  ![](https://fotos.subefotos.com/414b2a5e0536bee5d3e8a2466faf6ad8o.png)
+
+* Para maquetación y diseño
+  Adobde Illustrator
+  ![](https://fotos.subefotos.com/1c3d8dd72f6032e8db86def564f6f9a1o.png)
+
+####  Implementación de la Interfaz de Usuario
 La idea para este proyecto es que el producto a desarrollar siga los
 lineamientos propuestos en el diseño de la interfaz de usuario. Asegúrate a lo
 largo de la implementación que los elementos propuestos están siendo
 implementados correctamente. (Hint: testing)
+
+## Front end 
+Trabajamos con la libreria de JS (vanilla javascript)  paradesarrollar el proyecto.
+
+Estructuramos un boilerplate  creando una carpeta para el desarrollo del proyecto tambien incluimoso la carpeta para tests y otra para el desarrollo del proyecto en sí.
+
+* Implementación
+Para jecutar la aplicación localmente:
+Necesitas instalar "Git bash"
+Tienes que forkear el repocitorio de Laboratoria:
+https://github.com/Laboratoria/lim-2018-05-bc-core-pm-socialnetwork
+
+Luego debes clonar el link  del  repositorio en tu equipo...
+git clone https://github.com/Jhozhelin/lim-2018-05-bc-core-pm-socialnetwork.git
+
+* Instala dependencias:
+Necesitas instalar
+
+Node.js® https://nodejs.org/es/
+
+Luego, ejecuta el comando npm install
+
+npm install
+
+
+
 
