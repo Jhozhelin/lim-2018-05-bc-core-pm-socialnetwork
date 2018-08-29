@@ -8,7 +8,8 @@ const posts = document.getElementById('divPosts'),
   btnPrivate = document.querySelector('#btn-private'),
   nameUser = document.querySelector('.card-title'),
   profileDiv = document.getElementById('profile'),
-  reloadPage = document.getElementsByClassName('reloadPage')
+  reloadPage = document.getElementsByClassName('reloadPage'),
+  wallTab= document.getElementById('wall-tab')
 
 
 let postData = {
@@ -19,22 +20,24 @@ let postData = {
   starCount: 0
 }
 
-
+/****************** función de crear usuario******************/
 
 window.onload = () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       postData.uid = user.uid
-      postData.author = user.displayName
-
+            
       console.log(user);
 
       firebase.database().ref(`users/${user.uid}/`).once('value')
         .then(result => {
           nameUser.textContent = result.val().username
+          postData.author = result.val().username
 
+          console.log(postData.author);
         })
-
+       
+        
     } else {
       location.href = 'index.html'
     }
@@ -83,7 +86,8 @@ const showPosts = (view) => {
         const postsList = snapshot.val()
         //console.log(postsList);
 
-
+        console.log(postsList);
+        
 
         let draw = `<div id= card-contend '${postsList.id}'class="card w-75" >
     <h4>${postsList.author}</h4>
@@ -116,7 +120,7 @@ const showPosts = (view) => {
 
           let draw = `<div id= card-contend '${unitPost}'class="card w-75" >
     <h4>${postsList[unitPost].author}</h4>
-    <textarea   id='text-${unitPost}'   cols= '60' rows= '6 '>${postsList[unitPost].body}</textarea>
+    <textarea   id='text-${unitPost}'   cols= '60' rows= '6 'disabled>${postsList[unitPost].body}</textarea>
       <br>`
 
 
@@ -136,6 +140,7 @@ profileDiv.addEventListener('click', (event) => {
   // console.log(profileDiv) 
 
   const idPost = event.target.id
+console.log(event);
 
   const idUser = postData.uid
 
@@ -143,8 +148,10 @@ profileDiv.addEventListener('click', (event) => {
     console.log('llamar a la función de me gusta')
     likePost(idUser, idPost)
     alert('Le diste Me ggusta 👍')
-    reload_page()
+    reload_page(true);
   }
+// console.log(idUser);
+// console.log(idPost);
 
 
 })
@@ -166,6 +173,7 @@ posts.addEventListener('click', (event) => {
   if (event.target.nodeName === 'BUTTON' && event.target.textContent === 'Editar') {
     console.log('llamar a la fun  ción de editar posts')
     //console.log(postId)
+    document.getElementById(`text-${event.target.id}`).setAttribute('disabled', true)
     const textPost = document.getElementById(`text-${event.target.id}`).value
     //console.log(postData.uid )
     const idUser = postData.uid
@@ -173,8 +181,8 @@ posts.addEventListener('click', (event) => {
 
 
     editPost(idUser, textPost, idPost)
-    alert('Se edito correctamente')
-    reload_page()
+    //alert('Se edito correctamente')
+    //reload_page()
 
 
   } else if (event.target.nodeName === 'BUTTON' && event.target.textContent === 'Eliminar') {
@@ -195,7 +203,11 @@ btnToPost.addEventListener('click', () => {
   postData.body = post.value
   const newPost = writeNewPost(postData)
 
-  reload_page()
+  // reload_page()
+console.log(userId);
+console.log(postData);
+console.log(newPost);
+
 
 
 })

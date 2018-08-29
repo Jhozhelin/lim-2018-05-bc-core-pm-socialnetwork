@@ -121,13 +121,15 @@ window.logout = () => {
     })
 }
 
-//**********Función para crear post**********
+//**********Función para crear post***********/
 window.writeNewPost = (postData) => {
   console.log(postData)
   // A post entry.
   // Get a key for a new Post.
   const newPostKey = firebase.database().ref().child('posts').push().key
   // Write the new post's data simultaneously in the posts list and the user's post list.
+  postData.id = newPostKey
+
   const updates = {}
   updates['/posts/' + newPostKey] = postData
   updates['/user-posts/' + postData.uid + '/' + newPostKey] = postData
@@ -178,7 +180,7 @@ window.likePost = (userId, postId) =>{
 
     
 
- firebase.database().ref('user-posts/' + userId + '/postId')
+ firebase.database().ref('user-posts/' + userId + postId)
  .update({
    starCount: contLike
  })
