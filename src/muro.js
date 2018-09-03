@@ -9,7 +9,7 @@ const posts = document.getElementById('divPosts'),
   nameUser = document.querySelector('.card-title'),
   profileDiv = document.getElementById('profile'),
   reloadPage = document.getElementsByClassName('reloadPage'),
-  wallTab= document.getElementById('wall-tab')
+  wallTab = document.getElementById('wall-tab')
 
 
 let postData = {
@@ -26,7 +26,7 @@ window.onload = () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       postData.uid = user.uid
-            
+
       console.log(user);
 
       firebase.database().ref(`users/${user.uid}/`).once('value')
@@ -36,8 +36,8 @@ window.onload = () => {
 
           console.log(postData.author);
         })
-       
-        
+
+
     } else {
       location.href = 'index.html'
     }
@@ -87,7 +87,7 @@ const showPosts = (view) => {
         //console.log(postsList);
 
         console.log(postsList);
-        
+
 
         let draw = `<div id= card-contend '${postsList.id}'class="card w-75" >
     <h4>${postsList.author}</h4>
@@ -124,9 +124,8 @@ const showPosts = (view) => {
       <br>`
 
 
-          draw += `<button id=${unitPost} value = 'Edit'>Editar</button>
-              <button id=${unitPost} value='Save'>Guardar</button>
-      <button id=${unitPost}>Eliminar</button> </div>`
+          draw += `<button id= 'edit-${unitPost}' value = 'Edit'>Editar</button>
+      <button id= 'delete-${unitPost}' value = 'delete'>Eliminar</button></div>`
 
           posts.innerHTML += draw
         }
@@ -140,7 +139,7 @@ profileDiv.addEventListener('click', (event) => {
   // console.log(profileDiv) 
 
   const idPost = event.target.id
-console.log(event);
+  console.log(event);
 
   const idUser = postData.uid
 
@@ -150,8 +149,8 @@ console.log(event);
     alert('Le diste Me ggusta 👍')
     reload_page(true);
   }
-// console.log(idUser);
-// console.log(idPost);
+  // console.log(idUser);
+  // console.log(idPost);
 
 
 })
@@ -173,14 +172,27 @@ posts.addEventListener('click', (event) => {
   if (event.target.nodeName === 'BUTTON' && event.target.textContent === 'Editar') {
     console.log('llamar a la fun  ción de editar posts')
     //console.log(postId)
-    document.getElementById(`text-${event.target.id}`).setAttribute('disabled', true)
+    document.getElementById(`text-${event.target.id}`).setAttribute('disabled',true)
     const textPost = document.getElementById(`text-${event.target.id}`).value
     //console.log(postData.uid )
     const idUser = postData.uid
     console.log(idUser)
 
+    Editar.addEventListener('click', () => {
 
-    editPost(idUser, textPost, idPost)
+      textPost.disabled = !textPost.disabled;
+
+      if (textPost.disabled) {
+        btnUpdate.value = 'Editar';
+      } else {
+        btnUpdate.value = 'Guardar';
+      }
+
+      editPost(idUser, textPost, idPost)
+    });
+
+
+
     //alert('Se edito correctamente')
     //reload_page()
 
@@ -189,7 +201,6 @@ posts.addEventListener('click', (event) => {
     console.log('llamar a la función de eliminar posts')
 
     deletePost(idUser, idPost)
-    alert('Se elimino correctamente')
     reload_page()
 
   }
@@ -199,18 +210,31 @@ posts.addEventListener('click', (event) => {
 //*********función de publicar//**********
 
 btnToPost.addEventListener('click', () => {
+
+
+  if (post.value.trim().length === 0) {
+
+    alert("Tienes que ingresar un texto para publicar")
+    return
+  }
+
   const userId = firebase.auth().currentUser.uid
   postData.body = post.value
   const newPost = writeNewPost(postData)
 
-  // reload_page()
-console.log(userId);
-console.log(postData);
-console.log(newPost);
+  writeNewPost(post.value, postData)
+  post.value = ""
+
+
+});
+// // reload_page()
+// console.log(userId);
+// console.log(postData);
+// console.log(newPost);
 
 
 
-})
+
 
 btnlogout.addEventListener('click', () => {
   logout()

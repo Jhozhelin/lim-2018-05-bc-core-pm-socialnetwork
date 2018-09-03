@@ -173,11 +173,10 @@ Incluyendo novedades en la aplicación cada cierto tiempo. Esto, actualizando nu
   Marvel app
   ![](https://fotos.subefotos.com/7580479aec502c081e95d27648db9336o.jpg)
 
-  ![](https://fotos.subefotos.com/414b2a5e0536bee5d3e8a2466faf6ad8o.png)
+  <!-- ![](https://fotos.subefotos.com/414b2a5e0536bee5d3e8a2466faf6ad8o.png) -->
 
 * Para maquetación y diseño
   Adobde Illustrator
-  ![](https://fotos.subefotos.com/1c3d8dd72f6032e8db86def564f6f9a1o.png)
 
 ####  Implementación de la Interfaz de Usuario
 La idea para este proyecto es que el producto a desarrollar siga los

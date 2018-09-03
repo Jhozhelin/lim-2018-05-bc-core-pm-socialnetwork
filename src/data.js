@@ -158,41 +158,42 @@ window.editPost = (userId, text, postId) => {
 
 //**********Función para eliminar post**********
 window.deletePost = (userId, postId) => {
-  console.log(userId)
-  console.log(postId)
+  let deleteCont = confirm('Se eliminara la publicación');
 
+  if (deleteCont) {
+    firebase.database().ref().child('/user-posts/' + userId + '/' + postId)
+      .remove()
+    firebase.database().ref().child('posts/' + postId)
+      .remove()
+  }
 
-  firebase.database().ref().child('/user-posts/' + userId + '/' + postId)
-    .remove()
-  firebase.database().ref().child('posts/' + postId)
-    .remove()
 }
 
 
 // ****************funcion de likes ***************
-window.likePost = (userId, postId) =>{
+window.likePost = (userId, postId) => {
   console.log(postId)
   let contLike = null
-  firebase.database().ref(`/posts/${postId}`).once('value').then(result=>{
-  contLike = result.val().starCount + 1
+  firebase.database().ref(`/posts/${postId}`).once('value').then(result => {
+    contLike = result.val().starCount + 1
 
-  console.log(contLike)
+    console.log(contLike)
 
-    
 
- firebase.database().ref('user-posts/' + userId + postId)
- .update({
-   starCount: contLike
- })
- firebase.database().ref('posts/' + postId)
- .update({
-  starCount: contLike
- })
-  
-    
-  }). catch(error => {
+
+    firebase.database().ref('user-posts/' + userId + postId)
+      .update({
+        starCount: contLike
+      })
+    firebase.database().ref('posts/' + postId)
+      .update({
+        starCount: contLike
+      })
+
+
+  }).catch(error => {
     console.log(error)
-    
+
   })
 
   console.log(contLike)
