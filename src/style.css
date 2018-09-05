@@ -10,6 +10,21 @@ span{
     color: #d34836;
 }
 
+/* .nav-tabs .nav-link{
+    border: 0;
+
+}
+
+.nav-tabs{
+    border: 0;
+    background-color: #549c0d;
+} */
+
+.navLogo{
+    display: inline-block; 
+    
+}
+
 #profile-tab {
     background-color: #549c0d; 
     color: white;

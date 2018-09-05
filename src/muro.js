@@ -124,7 +124,8 @@ const showPosts = (view) => {
       <br>`
 
 
-          draw += `<button id= 'edit-${unitPost}' value = 'Edit'>Editar</button>
+      draw += `<button id= 'edit-${unitPost}' value = 'edit'>Editar</button>
+      <button id= 'save-${unitPost}' value = 'save' style="display: none">Guardar</button>
       <button id= 'delete-${unitPost}' value = 'delete'>Eliminar</button></div>`
 
           posts.innerHTML += draw
@@ -163,45 +164,63 @@ posts.addEventListener('click', (event) => {
 
   //console.log(document.getElementById(`text-${event.target.id}`).textContent)
 
-  const idPost = event.target.id
-  console.log(idPost)
+  const idPost = event.target.id.split('-')[1]
+  // console.log(idPost)
 
   const idUser = postData.uid
-  console.log(idUser)
+  // console.log(idUser)
 
   if (event.target.nodeName === 'BUTTON' && event.target.textContent === 'Editar') {
-    console.log('llamar a la fun  ción de editar posts')
-    //console.log(postId)
-    document.getElementById(`text-${event.target.id}`).setAttribute('disabled',true)
+    console.log('llamar a la función de editar posts')
+
+    document.getElementById(`text-${event.target.id}`).disabled = false;
+    console.log(event);
+    console.log(event.target);
+    console.log(event.target.id)
+
+    
+    document.getElementById(`save-${event.target.id}`).style.display = "block";
+    console.log(event.target.id);
+
+    document.getElementById(`edit-${event.target.id}`).style.display = "none";
+    console.log(event.target.id);
+
+    editPost(idUser, textPost, idPost)
+
+    // console.log(editPost);
+    
+    /*
     const textPost = document.getElementById(`text-${event.target.id}`).value
     //console.log(postData.uid )
     const idUser = postData.uid
     console.log(idUser)
 
-    Editar.addEventListener('click', () => {
+    
 
-      textPost.disabled = !textPost.disabled;
-
-      if (textPost.disabled) {
-        btnUpdate.value = 'Editar';
-      } else {
-        btnUpdate.value = 'Guardar';
-      }
-
-      editPost(idUser, textPost, idPost)
-    });
-
-
-
+     editPost(idUser, textPost, idPost)
+    // });
+*/
     //alert('Se edito correctamente')
     //reload_page()
 
-
   } else if (event.target.nodeName === 'BUTTON' && event.target.textContent === 'Eliminar') {
     console.log('llamar a la función de eliminar posts')
-
+    const idUser = postData.uid
     deletePost(idUser, idPost)
+    // reload_p()
+
+  }else if(event.target.nodeName === 'BUTTON' && event.target.textContent === 'Guardar'){
+    
+    const textPost = document.getElementById(`text-${event.target.id}`).value
+    //console.log(postData.uid )
+    const idUser = postData.uid
+    console.log(idUser)
+
+    
+
+     editPost(idUser, textPost, idPost)
     reload_page()
+    // });
 
   }
 })
@@ -221,9 +240,11 @@ btnToPost.addEventListener('click', () => {
   const userId = firebase.auth().currentUser.uid
   postData.body = post.value
   const newPost = writeNewPost(postData)
-
-  writeNewPost(post.value, postData)
+  
   post.value = ""
+
+// console.log(userId);
+// console.log(newPost);
 
 
 });

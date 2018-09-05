@@ -158,6 +158,8 @@ window.editPost = (userId, text, postId) => {
 
 //**********Función para eliminar post**********
 window.deletePost = (userId, postId) => {
+  console.log(postId);
+  
   let deleteCont = confirm('Se eliminara la publicación');
 
   if (deleteCont) {
