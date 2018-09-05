@@ -161,28 +161,33 @@ profileDiv.addEventListener('click', (event) => {
 //divPost escuchando el evento para llamr a las funciones eliminar y editar
 posts.addEventListener('click', (event) => {
   console.log(posts)
+  
 
   //console.log(document.getElementById(`text-${event.target.id}`).textContent)
 
-  const idPost = event.target.id.split('-')[1]
-  // console.log(idPost)
-
+  // const idPost = event.target.id.split('-')[1]
+  // console.log("idPost", idPost)
+  const idPost = event.target.id.slice(event.target.id.indexOf("-") +1)
+  console.log("id",idPost);
+  
   const idUser = postData.uid
   // console.log(idUser)
+  const textPost = document.getElementById(`text-${idPost}`).value
 
   if (event.target.nodeName === 'BUTTON' && event.target.textContent === 'Editar') {
     console.log('llamar a la función de editar posts')
-
-    document.getElementById(`text-${event.target.id}`).disabled = false;
-    console.log(event);
+    console.log(event.target)
+    // console.log((`text-${}`));
+    document.getElementById(`text-${idPost}`).disabled = false;
+    
     console.log(event.target);
     console.log(event.target.id)
 
     
-    document.getElementById(`save-${event.target.id}`).style.display = "block";
+    document.getElementById(`save-${idPost}`).style.display = "block";
     console.log(event.target.id);
 
-    document.getElementById(`edit-${event.target.id}`).style.display = "none";
+    document.getElementById(`edit-${idPost}`).style.display = "none";
     console.log(event.target.id);
 
     editPost(idUser, textPost, idPost)
@@ -211,7 +216,6 @@ posts.addEventListener('click', (event) => {
 
   }else if(event.target.nodeName === 'BUTTON' && event.target.textContent === 'Guardar'){
     
-    const textPost = document.getElementById(`text-${event.target.id}`).value
     //console.log(postData.uid )
     const idUser = postData.uid
     console.log(idUser)
